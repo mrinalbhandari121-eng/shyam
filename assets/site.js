@@ -1,5 +1,6 @@
 import { RENDER, BLACKS } from './garments.js';
 import { atmosphere, grain, parallax } from './atmos.js';
+import { motifField, krishna } from './motifs.js';
 
 /* ---------------- data ---------------- */
 const PRODUCTS = [
@@ -62,9 +63,28 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
-/* ---------------- atmosphere ---------------- */
+/* ---------------- atmosphere & motifs ---------------- */
 atmosphere($('#atmos'));
 grain($('#grain'));
+motifField($('#motifs'));
+$('#kfig').innerHTML = krishna();
+
+/* The mark is cut on load: disc, then the slot, then the name.
+   Chrome throttles CSS animations in background tabs, and a fill-mode of
+   `both` would hold the hidden start state — so the intro only ever plays
+   when the page is actually visible, and always resolves to `shown`. */
+const settle = () => {
+  document.body.classList.remove('anim');
+  document.body.classList.add('shown');
+};
+if (document.hidden || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  settle();
+} else {
+  requestAnimationFrame(() => document.body.classList.add('anim'));
+  setTimeout(settle, 2600);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) settle(); },
+                            { once: true });
+}
 
 /* ---------------- editorial panels ---------------- */
 $('#stage1').innerHTML = RENDER.hoodie(BLACKS.neel);
