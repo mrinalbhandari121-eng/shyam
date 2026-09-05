@@ -128,13 +128,15 @@ body{padding-top:44px}
 
 @media print{
   @page{ size:297mm 210mm; margin:0; }
-  html,body{background:#fff;padding:0}
+  html,body{background:#05060B;padding:0 !important;margin:0}
+  body{padding-top:0 !important}
   .bar{display:none}
-  .page{margin:0;box-shadow:none;break-after:page;page-break-after:always}
+  .page{width:297mm !important;height:210mm !important;margin:0;padding:16mm 18mm 14mm !important;
+    box-shadow:none;break-after:page;page-break-after:always;overflow:hidden}
   .page:last-child{break-after:auto;page-break-after:auto}
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
 }
-@media (max-width:1100px){
+@media screen and (max-width:1100px){
   .page{width:100%;height:auto;min-height:0;padding:22px}
   body{padding-top:44px}
 }

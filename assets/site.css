@@ -380,3 +380,56 @@ section.panel{background:none}
   text-transform:uppercase;color:var(--muted)}
 .countline .when{align-self:center;margin:0 0 0 20px;font-family:var(--label);
   font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+/* ================= THE MARK ASSEMBLES ================= */
+.hero .disc{position:relative}
+.hero .disc .mark,.hero .disc .flyer{width:100%;height:auto}
+.flyer{position:absolute;inset:0;opacity:0;pointer-events:none}
+.anim .mark #discC{animation:discIn .85s cubic-bezier(.2,.9,.2,1) 1.05s both}
+.anim .mark #cut{transform-box:fill-box;transform-origin:50% 0;
+  animation:cutIn .5s cubic-bezier(.3,.9,.2,1) 1.32s both}
+.anim .fly-eye{animation:flyEye 1.55s cubic-bezier(.16,.84,.24,1) both}
+.anim .fly-flute{animation:flyFlute 1.75s cubic-bezier(.16,.84,.24,1) .1s both}
+@keyframes flyEye{
+  0%{opacity:0;transform:translate(-320px,-190px) scale(2) rotate(-40deg)}
+  18%{opacity:.85}
+  66%{opacity:.85;transform:translate(0,0) scale(1) rotate(0)}
+  100%{opacity:0;transform:translate(0,0) scale(1) rotate(0)}
+}
+@keyframes flyFlute{
+  0%{opacity:0;transform:translate(360px,215px) scale(1.8) rotate(78deg)}
+  20%{opacity:.9}
+  68%{opacity:.9;transform:translate(0,0) scale(1) rotate(0)}
+  100%{opacity:0;transform:translate(0,0) scale(1) rotate(0)}
+}
+.anim .hero .wm{animation:up .9s cubic-bezier(.2,.9,.2,1) 1.62s both}
+.anim .hero .dv{animation:up .9s cubic-bezier(.2,.9,.2,1) 1.78s both}
+.anim .say span:nth-child(1){animation:up .8s ease 1.94s both}
+.anim .say span:nth-child(2){animation:up .8s ease 2.08s both}
+.anim .say span:nth-child(3){animation:up .8s ease 2.22s both}
+.anim .scrollcue{animation:up .8s ease 2.5s both}
+.shown .mark #discC,.shown .mark #cut{animation:none !important;opacity:1 !important;transform:none !important}
+.shown .flyer{animation:none !important;opacity:0 !important}
+
+/* ================= CURSOR LIGHT ================= */
+#lamp{position:fixed;inset:0;z-index:-1;pointer-events:none;--lx:50%;--ly:40%;
+  background:radial-gradient(circle 420px at var(--lx) var(--ly),
+    rgba(150,168,214,.055),transparent 70%);
+  transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){ #lamp{display:none} }
+
+/* ================= HEADING REVEAL ================= */
+.w{display:inline-block;opacity:0;transform:translateY(16px) rotate(1.4deg);
+  transition:opacity .62s cubic-bezier(.2,.9,.2,1),transform .62s cubic-bezier(.2,.9,.2,1)}
+.w.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .w{opacity:1;transform:none;transition:none} }
+
+/* ================= CARD TILT + SPOTLIGHT ================= */
+.pgrid{perspective:1200px}
+.p{transform-style:preserve-3d;transition:border-color .25s,transform .35s cubic-bezier(.2,.9,.2,1)}
+.p .img::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  transition:opacity .3s;
+  background:radial-gradient(circle 220px at var(--px,50%) var(--py,50%),
+    rgba(190,205,240,.13),transparent 68%)}
+.p:hover .img::after{opacity:1}
+.p.tilt{transition:border-color .25s}

@@ -81,7 +81,7 @@ if (document.hidden || matchMedia('(prefers-reduced-motion: reduce)').matches) {
   settle();
 } else {
   requestAnimationFrame(() => document.body.classList.add('anim'));
-  setTimeout(settle, 2600);
+  setTimeout(settle, 3400);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) settle(); },
                             { once: true });
 }
@@ -297,3 +297,71 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObse
 }
 
 parallax();
+
+/* ---------------- cursor light ---------------- */
+(() => {
+  const lamp = $('#lamp');
+  if (!lamp || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let tx = innerWidth / 2, ty = innerHeight * 0.4, cx = tx, cy = ty, raf = 0;
+  addEventListener('pointermove', e => {
+    tx = e.clientX; ty = e.clientY;
+    if (!raf) raf = requestAnimationFrame(ease);
+  }, { passive: true });
+  function ease() {
+    cx += (tx - cx) * 0.09; cy += (ty - cy) * 0.09;
+    lamp.style.setProperty('--lx', cx.toFixed(1) + 'px');
+    lamp.style.setProperty('--ly', cy.toFixed(1) + 'px');
+    raf = (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) ? requestAnimationFrame(ease) : 0;
+  }
+})();
+
+/* ---------------- headings arrive word by word ---------------- */
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const heads = document.querySelectorAll('section h2, .story-copy h2, .panel-copy h2');
+  heads.forEach(h => {
+    const frag = document.createDocumentFragment();
+    h.childNodes.forEach(n => {
+      if (n.nodeType === 3) {
+        n.textContent.split(/(\s+)/).forEach(t => {
+          if (!t.trim()) { frag.appendChild(document.createTextNode(t)); return; }
+          const w = document.createElement('span');
+          w.className = 'w'; w.textContent = t;
+          frag.appendChild(w);
+        });
+      } else frag.appendChild(n.cloneNode(true));
+    });
+    h.textContent = ''; h.appendChild(frag);
+  });
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    [...e.target.querySelectorAll('.w')].forEach((w, i) =>
+      setTimeout(() => w.classList.add('on'), i * 42));
+    io.unobserve(e.target);
+  }), { rootMargin: '0px 0px -12% 0px' });
+  heads.forEach(h => io.observe(h));
+  /* nothing stays hidden if the observer never fires */
+  setTimeout(() => document.querySelectorAll('.w').forEach(w => w.classList.add('on')), 6000);
+})();
+
+/* ---------------- cards tilt toward the pointer ---------------- */
+(() => {
+  if (matchMedia('(pointer: coarse)').matches ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.p').forEach(card => {
+    const img = card.querySelector('.img');
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      card.classList.add('tilt');
+      card.style.transform =
+        `perspective(1200px) rotateY(${((px - .5) * 7).toFixed(2)}deg) ` +
+        `rotateX(${((.5 - py) * 7).toFixed(2)}deg) translateY(-4px)`;
+      if (img) { img.style.setProperty('--px', (px * 100).toFixed(1) + '%');
+                 img.style.setProperty('--py', (py * 100).toFixed(1) + '%'); }
+    });
+    card.addEventListener('pointerleave', () => {
+      card.classList.remove('tilt'); card.style.transform = '';
+    });
+  });
+})();
