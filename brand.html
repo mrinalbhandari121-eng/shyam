@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shyam — Brand Book</title>
+<meta name="description" content="The Shyam brand book: thesis, mark specification, the drop clock, the five blacks, typography, voice and applications.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23F2EDE3'/><rect x='47.7' y='4' width='4.6' height='47' fill='%2304050A'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Tiro+Devanagari+Sanskrit&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.plate{border:1px solid var(--line);display:grid;place-items:center;padding:9%;
+  background:radial-gradient(125% 100% at 50% 6%,#101420 0%,#010207 78%)}
+.plate.sq{aspect-ratio:1/1}
+.plate.lt{background:linear-gradient(180deg,#F4F1E9,#E6E1D5);border-color:#CBC5B6}
+.plate svg{width:100%;height:100%}
+figcaption{font-family:var(--label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-top:9px;text-align:center}
+figure{margin:0}
+.chip{border:1px solid var(--line)}
+.chip .sw{height:104px;border-bottom:1px solid var(--line)}
+.chip .t{padding:14px}
+.chip .t b{display:block;font-family:var(--label);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:5px;font-weight:600}
+.chip .t span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45}
+.chip .t code{font-family:var(--label);font-size:10.5px;color:var(--gold);letter-spacing:.06em}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:860px){ .g5{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:520px){ .g5{grid-template-columns:repeat(2,1fr)} }
+.no{border:1px solid #3B2530;background:rgba(120,40,50,.07);padding:20px}
+.no h3{color:#C77A7A}
+.no ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--cream-dim);line-height:1.55}
+.no li{margin-bottom:6px}
+.spec{border:1px solid var(--line);padding:26px}
+.spec .bg{font-family:var(--display);font-size:clamp(30px,5.4vw,60px);line-height:1;margin-bottom:12px}
+.clock{display:grid;grid-template-columns:repeat(6,1fr);gap:16px 10px}
+.clock figure{display:flex;flex-direction:column;align-items:center;gap:7px}
+.clock svg{width:100%;max-width:54px;height:auto}
+.clock i{font-family:var(--label);font-style:normal;font-size:9px;letter-spacing:.14em;color:var(--muted)}
+.cover{padding:80px 0 60px;text-align:center;border-bottom:1px solid var(--line-soft)}
+.cover .mk{width:120px;margin:0 auto 34px}
+.cover h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,10vw,108px);
+  line-height:.94;letter-spacing:.06em;margin:0 0 14px}
+.cover .dv{font-family:'Tiro Devanagari Sanskrit',serif;font-size:24px;color:var(--gold);margin-bottom:22px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="in">
+    <a class="brand" href="index.html">
+      <span class="mk"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#F2EDE3"/><rect x="47.7" y="4" width="4.6" height="47" fill="#04050A"/></svg></span>
+      <span class="nm">SHYAM</span>
+    </a>
+    <div class="links">
+      <a href="index.html">Store</a>
+      <a href="logo.html">Identity</a>
+      <a href="brand.html" style="color:var(--cream)">Brand book</a>
+      <a href="plan.html">Business plan</a>
+    </div>
+  </div>
+</nav>
+
+<div class="doc">
+
+<div class="cover">
+  <div class="mk"><svg viewBox="0 0 200 200" role="img" aria-label="The Shyam mark"><circle cx="100" cy="100" r="92" fill="#F2EDE3"/><rect x="95.4" y="8" width="9.2" height="94" fill="#04050A"/></svg></div>
+  <h1>SHYAM</h1>
+  <div class="dv">श्याम</div>
+  <p class="lede" style="margin:0 auto;max-width:50ch">An all-black clothing house named after Krishna, dropping once a month on the new moon.</p>
+  <p class="lab" style="margin-top:26px">Brand book v1 &middot; September 2026 &middot; Confidential</p>
+</div>
+
+<!-- 01 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">01</span><span class="lab">The idea</span></div>
+  <h2>Western streetwear made black mean danger.<br>We are building it on the tradition where black means god.</h2>
+  <p class="lede" style="margin-bottom:28px">Krishna is painted dark because the infinite has no colour. <em>Shyam</em> is his name and it is also the Sanskrit word for black. Every garment we make is black &mdash; not as edge, not as minimalism, but as devotion.</p>
+  <div class="g3">
+    <div class="card"><h3>The name does the work</h3><p>Shyam is a real Indian first name. Instantly legible at home, completely opaque abroad &mdash; the exact split Supreme had in 1994.</p></div>
+    <div class="card"><h3>One colour is a moat</h3><p>Competitors dilute across a seasonal palette. We compound. In five years &ldquo;black done properly&rdquo; is a manufacturing capability nobody copies in a season.</p></div>
+    <div class="card"><h3>Devotion outlasts hype</h3><p>Hype churns. <em>Bhakti</em> doesn't. The language comes from worship, not the street: the drop is a night, the customer is a follower.</p></div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">02</span><span class="lab">The mark</span></div>
+  <div class="g2" style="align-items:center">
+    <div class="plate sq"><svg viewBox="0 0 300 300" id="grid" role="img" aria-label="The mark on its construction grid"></svg></div>
+    <div>
+      <h2>One disc, cut once at twelve.</h2>
+      <p style="color:var(--cream-dim)">It is <em>amavasya</em> &mdash; the moonless night the drops fall on. It is midnight, the hour he was born, in the dark half of the month. It is a hand on a dial standing at twelve, which is why the calendar system falls out of it.</p>
+      <dl class="kv" style="margin-top:20px">
+        <dt>Disc</dt><dd>True circle. Never an ellipse, never a stroke.</dd>
+        <dt>Slot width</dt><dd><b>5%</b> of the diameter. At Ø20&nbsp;mm that is 1&nbsp;mm.</dd>
+        <dt>Slot depth</dt><dd>Exactly to the centre point. Not one per cent over.</dd>
+        <dt>Terminals</dt><dd>Flat and square. The slot breaks the outer edge cleanly.</dd>
+        <dt>Clear space</dt><dd>One quarter of the diameter on all four sides.</dd>
+        <dt>Minimum</dt><dd>8&nbsp;mm printed, 12&nbsp;mm embroidered, 16&nbsp;px on screen.</dd>
+        <dt>Under 20&nbsp;px</dt><dd>Slot opens to <b>6.5%</b>. The only exception in the system.</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="g4" style="margin-top:22px">
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200"><circle cx="100" cy="72" r="42" fill="#F2EDE3"/><rect x="98" y="29" width="4" height="45" fill="#04050A"/><text x="100" y="150" text-anchor="middle" textLength="120" lengthAdjust="spacing" font-family="'Instrument Serif',serif" font-size="34" fill="#F2EDE3">SHYAM</text><rect x="40" y="163" width="120" height="1" fill="#C7A252"/><text x="100" y="182" text-anchor="middle" font-family="'Tiro Devanagari Sanskrit',serif" font-size="13" fill="#8A7038">श्याम</text></svg></div><figcaption>Primary · stacked</figcaption></figure>
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200"><circle cx="46" cy="100" r="30" fill="#F2EDE3"/><rect x="44.4" y="69" width="3.2" height="32" fill="#04050A"/><text x="88" y="96" font-family="'Instrument Serif',serif" font-size="30" letter-spacing="3.5" fill="#F2EDE3">SHYAM</text><rect x="88" y="108" width="100" height="1" fill="#C7A252"/><text x="88" y="126" font-family="'Tiro Devanagari Sanskrit',serif" font-size="12" fill="#8A7038">श्याम</text></svg></div><figcaption>Horizontal</figcaption></figure>
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="78" fill="#F2EDE3"/><rect x="96.1" y="22" width="7.8" height="80" fill="#04050A"/></svg></div><figcaption>Mark alone</figcaption></figure>
+    <figure><div class="plate sq lt"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="78" fill="#0B0B0C"/><rect x="96.1" y="22" width="7.8" height="80" fill="#EDE9DE"/></svg></div><figcaption>Reversed</figcaption></figure>
+  </div>
+  <div class="g2" style="margin-top:22px">
+    <div class="card"><h3>Always</h3><p>Cream on black is the default and covers nine tenths of everything. Gold is reserved for cast hardware and the annual Janmashtami piece. The mark may appear with no wordmark at all.</p></div>
+    <div class="no"><h3>Never</h3><ul>
+      <li>Never outline it, stroke it, or leave it unfilled.</li>
+      <li>Never rotate the slot except on the drop calendar.</li>
+      <li>Never place the mark inside another frame or badge.</li>
+      <li>Never set the wordmark in gold.</li>
+      <li>Never add a shadow, gradient or bevel. It is one flat colour.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">03</span><span class="lab">The drop clock</span></div>
+  <div class="g2" style="align-items:start">
+    <div>
+      <h2>The logo is the calendar.</h2>
+      <p style="color:var(--cream-dim)">The slot is a hand on a dial. Rotate it thirty degrees per drop and twelve positions cover a year &mdash; one for each <em>amavasya</em>. Drop 001 stands at twelve.</p>
+      <p style="color:var(--cream-dim)">On the site it is the countdown. On a garment it says which drop the piece came from without printing a number. In a grid, the same twelve discs are the canvas repeat. One drawing, four jobs.</p>
+      <p style="color:var(--cream-dim)"><b>Drop dates are astronomical, not commercial.</b> Nobody &mdash; including us &mdash; decides when a new moon falls.</p>
+    </div>
+    <div class="card"><div class="clock" id="clock"></div></div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">04</span><span class="lab">Colour</span></div>
+  <h2>We sell one colour, so we made five of it.</h2>
+  <p class="lede" style="margin-bottom:26px">Each black is a named, repeatable dye-and-wash recipe. This is the part of the brand that becomes a manufacturing moat &mdash; and it is what the hangtag talks about instead of talking about us.</p>
+  <div class="g5">
+    <div class="chip"><div class="sw" style="background:#000"></div><div class="t"><b>Kajal</b><span>Kohl. Reactive-dyed, double dip. The reference black.</span><code>#000000</code></div></div>
+    <div class="chip"><div class="sw" style="background:#0A0F1E"></div><div class="t"><b>Neel</b><span>Blue-black. Indigo over black — the colour he is painted.</span><code>#0A0F1E</code></div></div>
+    <div class="chip"><div class="sw" style="background:#1C1B19"></div><div class="t"><b>Raakh</b><span>Ash. Enzyme-washed, sun-faded on purpose.</span><code>#1C1B19</code></div></div>
+    <div class="chip"><div class="sw" style="background:#14100E"></div><div class="t"><b>Mitti</b><span>Earth. Iron-mordant natural dye, Bagru. Varies by batch.</span><code>#14100E</code></div></div>
+    <div class="chip"><div class="sw" style="background:#0D1512"></div><div class="t"><b>Mor</b><span>Peacock-black. Teal cast in raking light only.</span><code>#0D1512</code></div></div>
+  </div>
+  <div class="g3" style="margin-top:20px">
+    <div class="chip"><div class="sw" style="background:#C7A252"></div><div class="t"><b>Pitambar gold</b><span>His yellow silk. Hardware, band and thread only — never type.</span><code>#C7A252</code></div></div>
+    <div class="chip"><div class="sw" style="background:#F2EDE3"></div><div class="t"><b>Chandan</b><span>The one light. Labels, print, reversed marks.</span><code>#F2EDE3</code></div></div>
+    <div class="card"><h3>The fade warranty</h3><p>Black streetwear greys after twelve washes and everyone knows it. Every garment ships with a numbered card: if Kajal fades within two years we re-dye it free, forever. It costs almost nothing at this volume and it is a better advertisement than anything we could buy.</p></div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">05</span><span class="lab">Typography</span></div>
+  <div class="g2">
+    <div class="spec">
+      <div class="bg">SHYAM श्याम</div>
+      <p style="color:var(--cream-dim);font-size:14px;margin:0 0 12px">Instrument Serif &middot; Tiro Devanagari Sanskrit</p>
+      <p class="lab" style="margin:0">Wordmark &middot; headlines &middot; the Devanagari</p>
+    </div>
+    <div class="spec">
+      <div class="bg" style="font-family:var(--label);font-weight:500;font-size:clamp(24px,4vw,42px);letter-spacing:.02em">Drop 001 &middot; 1,310 units</div>
+      <p style="color:var(--cream-dim);font-size:14px;margin:0 0 12px">Archivo &middot; Instrument Sans</p>
+      <p class="lab" style="margin:0">Labels &middot; data &middot; running text &middot; the site</p>
+    </div>
+  </div>
+  <div class="g3" style="margin-top:20px">
+    <div class="card"><h3>The rule that matters</h3><p>Devanagari is <b>never letterspaced</b>. Tracking breaks the conjuncts and the word stops being a word. The Latin is tracked +180; the Devanagari is set as drawn.</p></div>
+    <div class="card"><h3>Equal, not subtitled</h3><p>श्याम is part of the identity, not a translation of it. It appears at a size that reads as a signature, never as a caption.</p></div>
+    <div class="card"><h3>Numerals</h3><p>Drops, unit counts and prices are always tabular. A drop is <b>001</b>, never <b>1</b>. Editions are always out of 108.</p></div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">06</span><span class="lab">Voice</span></div>
+  <div class="g2">
+    <div>
+      <h2>Say less than you could.</h2>
+      <p style="color:var(--cream-dim)">The brand withholds. Copy is short, flat and specific &mdash; a dye recipe, a weight in gsm, a date. No adjectives doing work a fact could do. We never explain the reference; the people it is for already know, and the people it isn't for are not the market.</p>
+    </div>
+    <div class="card">
+      <h3>How it sounds</h3>
+      <p><b>Yes:</b> &ldquo;260 gsm compact cotton. Kajal, double-dipped. 300 made.&rdquo;</p>
+      <p><b>Yes:</b> &ldquo;The room stays dark until the moon does.&rdquo;</p>
+      <p><b>No:</b> &ldquo;Inspired by the timeless spirit of Lord Krishna, this luxurious piece&hellip;&rdquo;</p>
+      <p style="color:var(--gold)">The line we sell against: <em>You've been wearing black your whole life. You just didn't know whose it was.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section>
+  <div class="rule"><span class="lab" style="color:var(--gold)">07</span><span class="lab">Applied</span></div>
+  <div class="g4">
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200" role="img" aria-label="Tonal woven neck label"><rect x="20" y="68" width="160" height="64" rx="2" fill="#12151E" stroke="#242A38"/><line x1="20" y1="74" x2="180" y2="74" stroke="#2C3341" stroke-dasharray="3 4"/><line x1="20" y1="126" x2="180" y2="126" stroke="#2C3341" stroke-dasharray="3 4"/><circle cx="62" cy="100" r="17" fill="#4A5162"/><rect x="61.2" y="83" width="1.6" height="18" fill="#12151E"/><text x="90" y="97" font-family="'Instrument Serif',serif" font-size="17" letter-spacing="3" fill="#4A5162">SHYAM</text><text x="90" y="115" font-family="Archivo" font-size="7.5" letter-spacing="2" fill="#3B4252">MADE IN INDIA</text></svg></div><figcaption>Woven label · tonal</figcaption></figure>
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200" role="img" aria-label="Cast brass button"><defs><linearGradient id="br2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E7CD8E"/><stop offset="45%" stop-color="#C7A252"/><stop offset="78%" stop-color="#7E6530"/><stop offset="100%" stop-color="#C4A055"/></linearGradient></defs><circle cx="100" cy="100" r="60" fill="url(#br2)" stroke="#5E4B22"/><circle cx="100" cy="100" r="50" fill="none" stroke="#8A7038" stroke-width="1.2"/><rect x="97.9" y="42" width="4.2" height="60" fill="#3A2E12"/></svg></div><figcaption>Brass button · cast groove</figcaption></figure>
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200" role="img" aria-label="Blind debossed hangtag"><rect x="56" y="18" width="88" height="164" rx="2" fill="#0E111A" stroke="#242A38"/><circle cx="100" cy="36" r="5" fill="none" stroke="#2C3341"/><circle cx="100" cy="84" r="26" fill="#F2EDE3"/><rect x="98.7" y="57" width="2.6" height="28" fill="#0E111A"/><text x="100" y="132" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="17" letter-spacing="2.5" fill="#F2EDE3">SHYAM</text><rect x="72" y="141" width="56" height="1" fill="#8A7038"/><text x="100" y="160" text-anchor="middle" font-family="Archivo" font-size="7" letter-spacing="2" fill="#6E7484">DROP 001 · 001/300</text></svg></div><figcaption>Hangtag · blind deboss</figcaption></figure>
+    <figure><div class="plate sq"><svg viewBox="0 0 200 200" role="img" aria-label="Shipping box with gold band"><rect x="26" y="60" width="148" height="96" fill="#0B0E16" stroke="#242A38"/><rect x="26" y="96" width="148" height="12" fill="#C7A252"/><circle cx="100" cy="80" r="12" fill="#F2EDE3"/><rect x="99.4" y="68" width="1.2" height="13" fill="#0B0E16"/><text x="100" y="134" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="15" letter-spacing="3" fill="#F2EDE3">SHYAM</text></svg></div><figcaption>Box · pitambar band</figcaption></figure>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--line);margin-top:40px">
+  <span class="lab">Shyam &middot; brand book v1 &middot; September 2026 &middot; confidential</span>
+  <p style="margin-top:12px;max-width:70ch">The mark is a pure geometric construction and is production-ready as specified. The wordmark beside it is set in a licensed typeface at this stage and must be redrawn as custom outlines before filing or printing. Trademark: file the device plus wordmark as a composite in Nice classes 25 and 35, India first, then Madrid for UK, EU, US and UAE.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  var g=document.getElementById('grid');
+  if(g){
+    g.appendChild(el('circle',{cx:150,cy:150,r:130,fill:'none',stroke:'#232A38','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('line',{x1:150,y1:8,x2:150,y2:292,stroke:'#232A38','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('line',{x1:8,y1:150,x2:292,y2:150,stroke:'#232A38','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('circle',{cx:150,cy:150,r:110,fill:'#F2EDE3'}));
+    g.appendChild(el('rect',{x:144.5,y:40,width:11,height:112,fill:'#04050A'}));
+    g.appendChild(el('circle',{cx:150,cy:150,r:4,fill:'#C7A252'}));
+    var t=el('text',{x:150,y:284,'text-anchor':'middle','font-family':'Archivo','font-size':10,'letter-spacing':2,fill:'#6E7484'});
+    t.textContent='SLOT 5% OF Ø  ·  DEPTH TO CENTRE';
+    g.appendChild(t);
+  }
+  var DATES=['11 Oct 2026','10 Nov 2026','9 Dec 2026','8 Jan 2027','6 Feb 2027','8 Mar 2027',
+             '6 Apr 2027','6 May 2027','4 Jun 2027','4 Jul 2027','2 Aug 2027','1 Sep 2027'];
+  var c=document.getElementById('clock');
+  if(c){
+    DATES.forEach(function(d,i){
+      var f=document.createElement('figure');
+      f.innerHTML='<svg viewBox="0 0 70 70" aria-hidden="true"><g transform="rotate('+(i*30)+' 35 35)">'+
+        '<circle cx="35" cy="35" r="30" fill="'+(i===0?'#C7A252':'#F2EDE3')+'"/>'+
+        '<rect x="33.5" y="4" width="3" height="32" fill="#080A11"/></g></svg>'+
+        '<i>'+String(i+1).padStart(3,'0')+'</i>';
+      f.title='Drop '+String(i+1).padStart(3,'0')+' · '+d;
+      c.appendChild(f);
+    });
+  }
+})();
+</script>
+</body>
+</html>
