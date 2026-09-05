@@ -1,6 +1,6 @@
-import { RENDER, BLACKS } from './garments.js';
-import { atmosphere, grain, parallax } from './atmos.js';
-import { motifField, krishna } from './motifs.js';
+import { RENDER, BLACKS } from './garments.js?v=01b39c98';
+import { atmosphere, grain, parallax } from './atmos.js?v=8b7e9abc';
+import { motifField, krishna } from './motifs.js?v=79e5ee47';
 
 /* ---------------- data ---------------- */
 const PRODUCTS = [
