@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shyam — The Book</title>
+<meta name="description" content="Shyam: brand book and business plan in one document. All figures USD.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23F2EDE3'/><rect x='47.7' y='4' width='4.6' height='47' fill='%2304050A'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&family=Tiro+Devanagari+Sanskrit&display=swap">
+<style>
+:root{
+  --ink:#05060B; --plate:#0A0D15; --line:#202634; --line-soft:#161B26;
+  --cream:#F2EDE3; --cream-dim:#B7B2A7; --muted:#7B8192;
+  --gold:#C7A252; --gold-dim:#8A7038;
+  --display:'Instrument Serif',Georgia,serif;
+  --sans:'Instrument Sans','Helvetica Neue',sans-serif;
+  --label:'Archivo','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#15161A;color:var(--cream);
+  font-family:var(--sans);font-size:10.2pt;line-height:1.5;-webkit-font-smoothing:antialiased}
+p{margin:0 0 8pt}
+b{font-weight:600;color:var(--cream)}
+em{font-family:var(--display);font-style:italic;font-size:1.06em}
+svg{display:block}
+
+.page{
+  position:relative;width:297mm;height:210mm;margin:8mm auto;padding:16mm 18mm 14mm;
+  background:var(--ink);overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:0 6px 30px rgba(0,0,0,.5);
+}
+.page::after{content:attr(data-pg);position:absolute;right:18mm;bottom:8mm;
+  font-family:var(--label);font-size:7pt;letter-spacing:.2em;color:#4B5262}
+.page::before{content:attr(data-run);position:absolute;left:18mm;bottom:8mm;
+  font-family:var(--label);font-size:7pt;letter-spacing:.2em;color:#4B5262;text-transform:uppercase}
+
+.rule{display:flex;align-items:baseline;gap:10pt;margin:0 0 9mm;
+  border-bottom:.4pt solid var(--line);padding-bottom:4pt}
+.lab{font-family:var(--label);font-size:7pt;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);margin:0}
+.lab.g{color:var(--gold)}
+.rule .n{font-family:var(--display);font-style:italic;font-size:11pt;color:var(--gold)}
+h1{font-family:var(--display);font-weight:400;font-size:30pt;line-height:1.02;margin:0 0 6mm;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:400;font-size:20pt;line-height:1.1;margin:0 0 5mm}
+h3{font-family:var(--label);font-size:7.5pt;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 3mm;color:var(--gold)}
+.lede{font-size:11pt;line-height:1.5;color:var(--cream-dim);max-width:150mm}
+.dim{color:var(--cream-dim)}
+
+.body{flex:1;display:flex;flex-direction:column;gap:6mm;min-height:0}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
+.cols5{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}
+.card{border:.4pt solid var(--line);padding:5mm}
+.card p{margin:0;font-size:9pt;line-height:1.45;color:var(--cream-dim)}
+.card p+p{margin-top:3mm}
+.big{font-family:var(--display);font-size:22pt;line-height:1;color:var(--cream);margin-bottom:2mm}
+.big.g{color:var(--gold)}
+
+table{border-collapse:collapse;width:100%;font-size:8.4pt}
+th,td{text-align:left;padding:2.6mm 3mm;border-bottom:.4pt solid var(--line-soft);vertical-align:top}
+thead th{font-family:var(--label);font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;background:var(--plate);border-bottom:.5pt solid var(--line)}
+td.n,th.n{text-align:right;font-family:var(--label);font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:none}
+tfoot td{font-family:var(--label);font-weight:600;background:var(--plate);border-top:.5pt solid var(--line)}
+
+dl.kv{display:grid;grid-template-columns:34mm 1fr;gap:2mm 6mm;margin:0;font-size:9pt}
+dl.kv dt{font-family:var(--label);font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);padding-top:1mm}
+dl.kv dd{margin:0;color:var(--cream-dim)}
+ul{margin:0;padding-left:5mm;font-size:9pt;color:var(--cream-dim);line-height:1.5}
+li{margin-bottom:1.6mm}
+
+.plate{border:.4pt solid var(--line);background:radial-gradient(120% 90% at 50% 4%,#141926 0%,#020308 76%);
+  display:grid;place-items:center;padding:6mm}
+.plate svg{width:100%;height:100%;max-height:100%}
+figure{margin:0}
+figcaption{font-family:var(--label);font-size:6.4pt;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-top:2mm;text-align:center}
+.chip{border:.4pt solid var(--line)}
+.chip .sw{height:22mm;border-bottom:.4pt solid var(--line)}
+.chip .t{padding:3mm}
+.chip .t b{display:block;font-family:var(--label);font-size:7.4pt;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:1.5mm}
+.chip .t span{display:block;font-size:7.6pt;color:var(--muted);line-height:1.35}
+.chip .t code{font-family:var(--label);font-size:6.8pt;color:var(--gold)}
+.no{border:.4pt solid #3E2630;background:rgba(120,40,50,.08);padding:5mm}
+.no h3{color:#C77A7A}
+
+/* cover + dividers */
+.cover{justify-content:center;align-items:center;text-align:center}
+.cover .mk{width:34mm;margin-bottom:9mm}
+.cover h1{font-size:54pt;letter-spacing:.06em;margin-bottom:4mm}
+.cover .dv{font-family:'Tiro Devanagari Sanskrit',serif;font-size:15pt;color:var(--gold);margin-bottom:7mm}
+.cover .meta{display:flex;gap:12mm;margin-top:10mm}
+.divider{justify-content:center}
+.divider h1{font-size:40pt;max-width:170mm}
+.divider .mk{width:20mm;margin-bottom:8mm}
+
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:3mm 14mm;font-size:9.5pt}
+.toc div{display:flex;gap:4mm;border-bottom:.4pt dotted var(--line);padding-bottom:2mm}
+.toc span:first-child{font-family:var(--label);font-size:7pt;color:var(--gold);width:9mm;padding-top:1.5mm}
+.toc span:last-child{margin-left:auto;font-family:var(--label);font-size:7.5pt;color:var(--muted);padding-top:1mm}
+
+.clock{display:grid;grid-template-columns:repeat(6,1fr);gap:5mm 3mm}
+.clock figure{display:flex;flex-direction:column;align-items:center;gap:2mm}
+.clock svg{width:14mm;height:14mm}
+.clock i{font-family:var(--label);font-style:normal;font-size:6.4pt;letter-spacing:.12em;color:var(--muted)}
+
+.foot-note{font-size:7.6pt;color:var(--muted);line-height:1.45;max-width:170mm}
+
+/* on-screen toolbar, never printed */
+.bar{position:fixed;top:0;left:0;right:0;z-index:9;background:rgba(10,12,18,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  padding:10px 22px;display:flex;align-items:center;gap:18px;font-family:var(--label);
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.bar a{color:var(--muted);text-decoration:none}
+.bar a:hover{color:var(--cream)}
+.bar .dl{margin-left:auto;border:1px solid var(--gold-dim);color:var(--gold);
+  padding:7px 14px;text-decoration:none}
+.bar .dl:hover{background:rgba(199,162,82,.1);color:var(--gold)}
+body{padding-top:44px}
+
+@media print{
+  @page{ size:297mm 210mm; margin:0; }
+  html,body{background:#fff;padding:0}
+  .bar{display:none}
+  .page{margin:0;box-shadow:none;break-after:page;page-break-after:always}
+  .page:last-child{break-after:auto;page-break-after:auto}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+}
+@media (max-width:1100px){
+  .page{width:100%;height:auto;min-height:0;padding:22px}
+  body{padding-top:44px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="index.html">← Shyam</a>
+  <span>The Book · Brand &amp; Business Plan · USD</span>
+  <a class="dl" href="Shyam-Book.pdf" download>Download PDF</a>
+</div>
+
+<!-- 01 COVER -->
+<div class="page cover" data-pg="" data-run="">
+  <div class="mk"><svg viewBox="0 0 200 200" role="img" aria-label="Shyam mark"><circle cx="100" cy="100" r="92" fill="#F2EDE3"/><rect x="95.4" y="8" width="9.2" height="94" fill="#05060B"/></svg></div>
+  <h1>SHYAM</h1>
+  <div class="dv">श्याम</div>
+  <p class="lede" style="max-width:120mm;text-align:center">An all-black clothing house named after Krishna.<br>One drop per new moon. Made in India, sold worldwide.</p>
+  <div class="meta">
+    <span class="lab">Brand &amp; business plan</span>
+    <span class="lab">September 2026</span>
+    <span class="lab">All figures USD</span>
+    <span class="lab">Confidential</span>
+  </div>
+</div>
+
+<!-- 02 CONTENTS -->
+<div class="page" data-pg="02" data-run="Contents">
+  <div class="rule"><span class="n">—</span><span class="lab">Contents</span></div>
+  <div class="body">
+    <div class="toc">
+      <div><span>I</span><span>The idea</span><span>03</span></div>
+      <div><span>VIII</span><span>Executive summary</span><span>13</span></div>
+      <div><span>II</span><span>The mark</span><span>04</span></div>
+      <div><span>IX</span><span>Market</span><span>14</span></div>
+      <div><span>III</span><span>Lockups &amp; rules</span><span>05</span></div>
+      <div><span>X</span><span>Customer</span><span>15</span></div>
+      <div><span>IV</span><span>The drop clock</span><span>06</span></div>
+      <div><span>XI</span><span>Unit economics</span><span>16</span></div>
+      <div><span>V</span><span>Colour — the five blacks</span><span>07</span></div>
+      <div><span>XII</span><span>The drop model</span><span>17</span></div>
+      <div><span>VI</span><span>Typography &amp; voice</span><span>08</span></div>
+      <div><span>XIII</span><span>Three-year model</span><span>18</span></div>
+      <div><span>VII</span><span>Drop 001 &amp; packaging</span><span>09</span></div>
+      <div><span>XIV</span><span>Operations</span><span>19</span></div>
+      <div><span></span><span></span><span></span></div>
+      <div><span>XV</span><span>Go to market</span><span>20</span></div>
+      <div><span></span><span></span><span></span></div>
+      <div><span>XVI</span><span>Capital, risk, milestones</span><span>21</span></div>
+    </div>
+    <div style="margin-top:auto">
+      <p class="foot-note">This document combines the brand book and the business plan. The first half specifies the identity and how it is applied; the second half is the commercial case. Figures are indicative planning numbers, not audited accounts.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 03 THE IDEA -->
+<div class="page" data-pg="03" data-run="I · The idea">
+  <div class="rule"><span class="n">I</span><span class="lab">The idea</span></div>
+  <div class="body">
+    <h1 style="max-width:210mm">Western streetwear made black mean danger.<br>We are building it on the tradition where black means god.</h1>
+    <p class="lede">Krishna is painted dark because the infinite has no colour. <em>Shyam</em> is his name and it is also the Sanskrit word for black. Every garment we make is black — not as edge, not as minimalism, but as devotion. Nobody has built that brand, and the houses that could afford to cannot credibly do it.</p>
+    <div class="cols3" style="margin-top:auto">
+      <div class="card"><h3>The name does the work</h3><p>Shyam is a real Indian first name. Instantly legible to those who know it, completely opaque to everyone else — the exact split Supreme had in 1994.</p></div>
+      <div class="card"><h3>One colour is a moat</h3><p>Competitors dilute across a seasonal palette. We compound. In five years, black done properly is a manufacturing capability nobody copies in a season.</p></div>
+      <div class="card"><h3>Devotion outlasts hype</h3><p>Hype churns. <em>Bhakti</em> doesn't. The language comes from worship, not the street: the drop is a night, the customer is a follower.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 THE MARK -->
+<div class="page" data-pg="04" data-run="II · The mark">
+  <div class="rule"><span class="n">II</span><span class="lab">The mark</span></div>
+  <div class="body">
+    <div class="cols2" style="flex:1;align-items:center">
+      <div class="plate" style="height:118mm"><svg viewBox="0 0 300 300" id="grid" role="img" aria-label="The mark on its construction grid"></svg></div>
+      <div>
+        <h2>One disc, cut once at twelve.</h2>
+        <p class="dim">It is <em>amavasya</em> — the moonless night the drops fall on. It is midnight, the hour he was born, in the dark half of the month. It is a hand on a dial standing at twelve, which is why the whole calendar system falls out of it.</p>
+        <dl class="kv" style="margin-top:6mm">
+          <dt>Disc</dt><dd>True circle. Never an ellipse, never a stroke.</dd>
+          <dt>Slot width</dt><dd><b>5%</b> of the diameter. At Ø20 mm that is 1 mm.</dd>
+          <dt>Slot depth</dt><dd>Exactly to the centre point. Not one per cent over.</dd>
+          <dt>Terminals</dt><dd>Flat and square, breaking the outer edge cleanly.</dd>
+          <dt>Clear space</dt><dd>One quarter of the diameter on all four sides.</dd>
+          <dt>Minimum</dt><dd>8 mm printed, 12 mm embroidered, 16 px on screen.</dd>
+          <dt>Under 20 px</dt><dd>Slot opens to <b>6.5%</b> — the only exception in the system.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 LOCKUPS -->
+<div class="page" data-pg="05" data-run="III · Lockups &amp; rules">
+  <div class="rule"><span class="n">III</span><span class="lab">Lockups &amp; rules</span></div>
+  <div class="body">
+    <div class="cols4">
+      <figure><div class="plate" style="height:52mm"><svg viewBox="0 0 200 200"><circle cx="100" cy="72" r="42" fill="#F2EDE3"/><rect x="98" y="29" width="4" height="45" fill="#05060B"/><text x="100" y="150" text-anchor="middle" textLength="120" lengthAdjust="spacing" font-family="'Instrument Serif',serif" font-size="34" fill="#F2EDE3">SHYAM</text><rect x="40" y="163" width="120" height="1" fill="#C7A252"/><text x="100" y="182" text-anchor="middle" font-family="'Tiro Devanagari Sanskrit',serif" font-size="13" fill="#8A7038">श्याम</text></svg></div><figcaption>Primary · stacked</figcaption></figure>
+      <figure><div class="plate" style="height:52mm"><svg viewBox="0 0 200 200"><circle cx="46" cy="100" r="30" fill="#F2EDE3"/><rect x="44.4" y="69" width="3.2" height="32" fill="#05060B"/><text x="88" y="96" font-family="'Instrument Serif',serif" font-size="30" letter-spacing="3.5" fill="#F2EDE3">SHYAM</text><rect x="88" y="108" width="100" height="1" fill="#C7A252"/><text x="88" y="126" font-family="'Tiro Devanagari Sanskrit',serif" font-size="12" fill="#8A7038">श्याम</text></svg></div><figcaption>Horizontal</figcaption></figure>
+      <figure><div class="plate" style="height:52mm"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="78" fill="#F2EDE3"/><rect x="96.1" y="22" width="7.8" height="80" fill="#05060B"/></svg></div><figcaption>Mark alone</figcaption></figure>
+      <figure><div class="plate" style="height:52mm;background:linear-gradient(180deg,#F4F1E9,#E6E1D5);border-color:#CBC5B6"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="78" fill="#0B0B0C"/><rect x="96.1" y="22" width="7.8" height="80" fill="#EDE9DE"/></svg></div><figcaption>Reversed</figcaption></figure>
+    </div>
+    <div class="cols2" style="margin-top:auto">
+      <div class="card"><h3>Always</h3><p>Cream on black is the default and covers nine tenths of everything. Gold is reserved for cast hardware and the annual Janmashtami piece. The mark may appear with no wordmark at all.</p></div>
+      <div class="no"><h3>Never</h3><ul>
+        <li>Never outline it, stroke it, or leave it unfilled.</li>
+        <li>Never rotate the slot except on the drop calendar.</li>
+        <li>Never place the mark inside another frame or badge.</li>
+        <li>Never set the wordmark in gold.</li>
+        <li>Never add a shadow, gradient or bevel. It is one flat colour.</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 CLOCK -->
+<div class="page" data-pg="06" data-run="IV · The drop clock">
+  <div class="rule"><span class="n">IV</span><span class="lab">The drop clock</span></div>
+  <div class="body">
+    <div class="cols2" style="flex:1;align-items:center">
+      <div>
+        <h2>The logo is the calendar.</h2>
+        <p class="dim">The slot is a hand on a dial. Rotate it thirty degrees per drop and twelve positions cover a year — one for each <em>amavasya</em>. Drop 001 stands at twelve.</p>
+        <p class="dim">On the site it is the countdown. On a garment it says which drop the piece came from without printing a number. In a grid, the same twelve discs are the canvas repeat. One drawing, four jobs.</p>
+        <p class="dim"><b>Drop dates are astronomical, not commercial.</b> Nobody decides when a new moon falls, and it happens at the same instant in every market on earth.</p>
+      </div>
+      <div class="card"><div class="clock" id="clock"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 COLOUR -->
+<div class="page" data-pg="07" data-run="V · Colour">
+  <div class="rule"><span class="n">V</span><span class="lab">Colour</span></div>
+  <div class="body">
+    <h2>We sell one colour, so we made five of it.</h2>
+    <p class="lede">Each black is a named, repeatable dye-and-wash recipe. This is the part of the brand that becomes a manufacturing moat — and it is what the hangtag talks about instead of talking about us.</p>
+    <div class="cols5">
+      <div class="chip"><div class="sw" style="background:#000"></div><div class="t"><b>Kajal</b><span>Kohl. Reactive-dyed, double dip. The reference black.</span><code>#000000</code></div></div>
+      <div class="chip"><div class="sw" style="background:#0A0F1E"></div><div class="t"><b>Neel</b><span>Blue-black. Indigo over black — the colour he is painted.</span><code>#0A0F1E</code></div></div>
+      <div class="chip"><div class="sw" style="background:#1C1B19"></div><div class="t"><b>Raakh</b><span>Ash. Enzyme-washed, sun-faded on purpose.</span><code>#1C1B19</code></div></div>
+      <div class="chip"><div class="sw" style="background:#14100E"></div><div class="t"><b>Mitti</b><span>Earth. Iron-mordant natural dye, Bagru. Varies by batch.</span><code>#14100E</code></div></div>
+      <div class="chip"><div class="sw" style="background:#0D1512"></div><div class="t"><b>Mor</b><span>Peacock-black. Teal cast in raking light only.</span><code>#0D1512</code></div></div>
+    </div>
+    <div class="cols3" style="margin-top:auto">
+      <div class="chip"><div class="sw" style="height:14mm;background:#C7A252"></div><div class="t"><b>Pitambar gold</b><span>His yellow silk. Hardware, band and thread only — never type.</span><code>#C7A252</code></div></div>
+      <div class="chip"><div class="sw" style="height:14mm;background:#F2EDE3"></div><div class="t"><b>Chandan</b><span>The one light. Labels, print, reversed marks.</span><code>#F2EDE3</code></div></div>
+      <div class="card"><h3>The fade warranty</h3><p>Black greys after twelve washes and everyone knows it. Every garment ships with a numbered card: if Kajal fades within two years we re-dye it free, forever, anywhere in the world. Modelled at a 4% claim rate and $18 a claim.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 TYPE + VOICE -->
+<div class="page" data-pg="08" data-run="VI · Typography &amp; voice">
+  <div class="rule"><span class="n">VI</span><span class="lab">Typography &amp; voice</span></div>
+  <div class="body">
+    <div class="cols2">
+      <div class="card"><div style="font-family:var(--display);font-size:30pt;line-height:1;margin-bottom:3mm">SHYAM श्याम</div>
+        <p style="margin-bottom:2mm">Instrument Serif · Tiro Devanagari Sanskrit</p><p class="lab">Wordmark · headlines · the Devanagari</p></div>
+      <div class="card"><div style="font-family:var(--label);font-weight:500;font-size:20pt;line-height:1;margin-bottom:3mm;letter-spacing:.02em">Drop 001 · 1,310 units</div>
+        <p style="margin-bottom:2mm">Archivo · Instrument Sans</p><p class="lab">Labels · data · running text · the site</p></div>
+    </div>
+    <div class="cols3">
+      <div class="card"><h3>The rule that matters</h3><p>Devanagari is <b>never letterspaced</b>. Tracking breaks the conjuncts and the word stops being a word. Latin is tracked +180; Devanagari is set as drawn.</p></div>
+      <div class="card"><h3>Equal, not subtitled</h3><p>श्याम is part of the identity, not a translation of it. It appears at a size that reads as a signature, never as a caption.</p></div>
+      <div class="card"><h3>Numerals</h3><p>Drops, unit counts and prices are always tabular. A drop is <b>001</b>, never <b>1</b>. Editions are always out of 108.</p></div>
+    </div>
+    <div class="cols2" style="margin-top:auto">
+      <div><h2 style="font-size:16pt">Say less than you could.</h2>
+        <p class="dim">The brand withholds. Copy is short, flat and specific — a dye recipe, a weight in gsm, a date. No adjectives doing work a fact could do. We never explain the reference; the people it is for already know.</p></div>
+      <div class="card"><h3>How it sounds</h3>
+        <p><b>Yes:</b> “260 gsm compact cotton. Kajal, double-dipped. 300 made.”</p>
+        <p><b>Yes:</b> “The room stays dark until the moon does.”</p>
+        <p><b>No:</b> “Inspired by the timeless spirit of Lord Krishna, this luxurious piece…”</p>
+        <p style="color:var(--gold)">The line we sell against: <em>You've been wearing black your whole life. You just didn't know whose it was.</em></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 PRODUCT + PACKAGING -->
+<div class="page" data-pg="09" data-run="VII · Drop 001">
+  <div class="rule"><span class="n">VII</span><span class="lab">Drop 001 &amp; packaging</span></div>
+  <div class="body">
+    <div class="cols4" id="flats"></div>
+    <div class="cols4" style="margin-top:auto">
+      <figure><div class="plate" style="height:40mm"><svg viewBox="0 0 200 200"><rect x="20" y="68" width="160" height="64" rx="2" fill="#12151E" stroke="#242A38"/><line x1="20" y1="74" x2="180" y2="74" stroke="#2C3341" stroke-dasharray="3 4"/><line x1="20" y1="126" x2="180" y2="126" stroke="#2C3341" stroke-dasharray="3 4"/><circle cx="62" cy="100" r="17" fill="#4A5162"/><rect x="61.2" y="83" width="1.6" height="18" fill="#12151E"/><text x="90" y="97" font-family="'Instrument Serif',serif" font-size="17" letter-spacing="3" fill="#4A5162">SHYAM</text><text x="90" y="115" font-family="Archivo" font-size="7.5" letter-spacing="2" fill="#3B4252">MADE IN INDIA</text></svg></div><figcaption>Woven label · tonal</figcaption></figure>
+      <figure><div class="plate" style="height:40mm"><svg viewBox="0 0 200 200"><defs><linearGradient id="br2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E7CD8E"/><stop offset="45%" stop-color="#C7A252"/><stop offset="78%" stop-color="#7E6530"/><stop offset="100%" stop-color="#C4A055"/></linearGradient></defs><circle cx="100" cy="100" r="60" fill="url(#br2)" stroke="#5E4B22"/><circle cx="100" cy="100" r="50" fill="none" stroke="#8A7038" stroke-width="1.2"/><rect x="97.9" y="42" width="4.2" height="60" fill="#3A2E12"/></svg></div><figcaption>Brass button · cast groove</figcaption></figure>
+      <figure><div class="plate" style="height:40mm"><svg viewBox="0 0 200 200"><rect x="56" y="18" width="88" height="164" rx="2" fill="#0E111A" stroke="#242A38"/><circle cx="100" cy="36" r="5" fill="none" stroke="#2C3341"/><circle cx="100" cy="84" r="26" fill="#F2EDE3"/><rect x="98.7" y="57" width="2.6" height="28" fill="#0E111A"/><text x="100" y="132" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="17" letter-spacing="2.5" fill="#F2EDE3">SHYAM</text><rect x="72" y="141" width="56" height="1" fill="#8A7038"/><text x="100" y="160" text-anchor="middle" font-family="Archivo" font-size="7" letter-spacing="2" fill="#6E7484">DROP 001 · 001/300</text></svg></div><figcaption>Hangtag · blind deboss</figcaption></figure>
+      <figure><div class="plate" style="height:40mm"><svg viewBox="0 0 200 200"><rect x="26" y="60" width="148" height="96" fill="#0B0E16" stroke="#242A38"/><rect x="26" y="96" width="148" height="12" fill="#C7A252"/><circle cx="100" cy="80" r="12" fill="#F2EDE3"/><rect x="99.4" y="68" width="1.2" height="13" fill="#0B0E16"/><text x="100" y="134" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="15" letter-spacing="3" fill="#F2EDE3">SHYAM</text></svg></div><figcaption>Box · pitambar band</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- 10 DIVIDER -->
+<div class="page divider" data-pg="10" data-run="">
+  <div class="mk" style="width:20mm"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="#C7A252"/><rect x="95.4" y="8" width="9.2" height="94" fill="#05060B"/></svg></div>
+  <span class="lab g">Part two</span>
+  <h1 style="margin-top:5mm">The business.</h1>
+  <p class="lede" style="max-width:150mm">Made in India, sold worldwide from day one. Direct only — no wholesale, no marketplaces, no paid media. All figures USD.</p>
+</div>
+
+<!-- 11 EXEC -->
+<div class="page" data-pg="11" data-run="VIII · Executive summary">
+  <div class="rule"><span class="n">VIII</span><span class="lab">Executive summary</span></div>
+  <div class="body">
+    <div class="cols4">
+      <div class="card"><h3>Revenue, Year 1</h3><div class="big">$1.33 M</div><p>Twelve drops, 87% blended sell-through, direct only.</p></div>
+      <div class="card"><h3>Gross margin</h3><div class="big">76%</div><p>After dye, cut-make-trim, packaging and a 6% reject allowance.</p></div>
+      <div class="card"><h3>EBITDA, Year 1</h3><div class="big">$716 K</div><p>No paid media, no wholesale discount, no retail rent.</p></div>
+      <div class="card"><h3>Capital required</h3><div class="big g">$45 K</div><p>To Drop 001. Self-funding from Drop 002 onward.</p></div>
+    </div>
+    <div class="cols2" style="margin-top:auto">
+      <div class="card"><h3>What the business is</h3>
+        <p>An all-black premium apparel house named after Krishna. Indian silhouettes cut with streetwear construction, priced <b>$38–$1,100</b>, released only on the night of the new moon and never restocked.</p>
+        <p>Eight to ten pieces per drop, 1,300–1,600 units, sold direct from our own storefront. Duties paid at checkout, shipped worldwide. Nothing to wholesale, marketplaces or resellers.</p></div>
+      <div class="card"><h3>Why it works</h3>
+        <p><b>Scarcity nobody has to justify.</b> The calendar is astronomical, and it opens at the same second in every market.</p>
+        <p><b>A category nobody occupies.</b> The $60–$300 band with a real Indian reference is empty worldwide.</p>
+        <p><b>A moat that compounds.</b> One colour done properly becomes a manufacturing capability, not a season's palette.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 MARKET -->
+<div class="page" data-pg="12" data-run="IX · Market">
+  <div class="rule"><span class="n">IX</span><span class="lab">Market</span></div>
+  <div class="body">
+    <h2>The gap is structural, and it is global.</h2>
+    <table>
+      <thead><tr><th>Segment</th><th>Who occupies it</th><th class="n">Typical piece</th><th>Why they can't move</th></tr></thead>
+      <tbody>
+        <tr><td><b>Indian couture</b></td><td>Sabyasachi, Rahul Mishra, Anita Dongre</td><td class="n">$700–6,000</td><td>Occasion-led. Cannot make a $60 tee without damaging the house.</td></tr>
+        <tr><td><b>Indian contemporary</b></td><td>Bhaane, NorBlackNorWhite, Kartik Research</td><td class="n">$25–145</td><td>Broad palettes, seasonal logic, little international distribution.</td></tr>
+        <tr><td><b>Global streetwear</b></td><td>Fear of God, Represent, Aimé Leon Dore</td><td class="n">$100–480</td><td>No cultural reference for this buyer; the drop calendar is arbitrary.</td></tr>
+        <tr><td><b>Global luxury</b></td><td>Dior, Gucci, Vuitton</td><td class="n">$1,800+</td><td>Can buy an Indian house; cannot credibly <em>be</em> one.</td></tr>
+        <tr style="background:rgba(199,162,82,.06)"><td><b style="color:var(--gold)">Shyam</b></td><td>Empty</td><td class="n">$38–1,100</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="cols4" style="margin-top:auto">
+      <div class="card"><h3>Launch markets</h3><p>US, UK, EU, UAE, Canada, Australia and India from Drop 001. One storefront, one currency, duties paid.</p></div>
+      <div class="card"><h3>The diaspora first</h3><p>32 million people of Indian origin outside India, concentrated in exactly our launch markets. The beachhead, not the whole market.</p></div>
+      <div class="card"><h3>Then everyone else</h3><p>The reference does not need to be understood to work. Expect <b>40%</b> non-diaspora by Year 2.</p></div>
+      <div class="card"><h3>Proof from adjacent</h3><p>ALD, Jacquemus and Ganni each built a house inside a decade at $100–400, never fighting LVMH on price.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 13 CUSTOMER -->
+<div class="page" data-pg="13" data-run="X · Customer">
+  <div class="rule"><span class="n">X</span><span class="lab">Customer</span></div>
+  <div class="body">
+    <div class="cols2" style="flex:1;align-items:center">
+      <div>
+        <h1 style="font-size:26pt">He already owns a lot of black.</h1>
+        <p class="lede">24–34. New York, London, Dubai, Toronto, Berlin, Mumbai, Bangalore. Design, tech, film, food, architecture. Spends $100–250 on a single garment without deliberating. Owns Fear of God and Uniqlo in the same wardrobe.</p>
+        <p class="lede">He does not want to be explained to, and he does not want to explain himself. That is the whole brief.</p>
+      </div>
+      <div class="card"><h3>What we know about him</h3>
+        <p><b>Buys on impulse inside a window.</b> Drop mechanics work because he is decisive and hates being sold to twice.</p>
+        <p><b>Reads the make, not the story.</b> Will read a gsm and a dye recipe. Will not read brand copy.</p>
+        <p><b>Resells.</b> One-per-person creates a secondary market — proof of demand and free price discovery.</p>
+        <p><b>Recruits.</b> Acquisition is word of mouth and the physical drop night, not advertising.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 14 UNIT ECON -->
+<div class="page" data-pg="14" data-run="XI · Unit economics">
+  <div class="rule"><span class="n">XI</span><span class="lab">Unit economics · Drop 001</span></div>
+  <div class="body">
+    <table>
+      <thead><tr><th>SKU</th><th>Piece</th><th>Tier</th><th class="n">Units</th><th class="n">Price</th><th class="n">COGS</th><th class="n">GM</th><th class="n">Gross</th></tr></thead>
+      <tbody>
+        <tr><td>S1-01</td><td>Boxy Tee</td><td>Core</td><td class="n">300</td><td class="n">$60</td><td class="n">$14.45</td><td class="n">75.9%</td><td class="n">$13,665</td></tr>
+        <tr><td>S1-02</td><td>Bansuri Hoodie</td><td>Core</td><td class="n">150</td><td class="n">$165</td><td class="n">$37.70</td><td class="n">77.2%</td><td class="n">$19,095</td></tr>
+        <tr><td>S1-03</td><td>Kurta Shirt</td><td>Core</td><td class="n">120</td><td class="n">$125</td><td class="n">$28.85</td><td class="n">76.9%</td><td class="n">$11,538</td></tr>
+        <tr><td>S1-04</td><td>Drape Trouser</td><td>Core</td><td class="n">100</td><td class="n">$145</td><td class="n">$32.45</td><td class="n">77.6%</td><td class="n">$11,255</td></tr>
+        <tr><td>S1-05</td><td>Bandhgala Jacket</td><td>Signature</td><td class="n">40</td><td class="n">$295</td><td class="n">$81.65</td><td class="n">72.3%</td><td class="n">$8,534</td></tr>
+        <tr><td>S1-06</td><td>Angavastram Scarf</td><td>Signature</td><td class="n">150</td><td class="n">$70</td><td class="n">$20.95</td><td class="n">70.1%</td><td class="n">$7,358</td></tr>
+        <tr><td>S1-07</td><td>Six-Panel Cap</td><td>Entry</td><td class="n">200</td><td class="n">$45</td><td class="n">$10.50</td><td class="n">76.7%</td><td class="n">$6,900</td></tr>
+        <tr><td>S1-08</td><td>Tulsi Mala</td><td>Entry</td><td class="n">250</td><td class="n">$38</td><td class="n">$8.30</td><td class="n">78.2%</td><td class="n">$7,425</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">Full sell-through</td><td class="n">1,310</td><td class="n">$113,050</td><td class="n">$27,280</td><td class="n">75.9%</td><td class="n">$85,770</td></tr></tfoot>
+    </table>
+    <div class="cols3" style="margin-top:auto">
+      <div class="card"><h3>COGS build, worked example</h3><p><b>Boxy Tee, $14.45:</b> fabric $5.10 · cut-make-trim $4.60 · garment dye $2.20 · trims and woven labels $1.45 · packaging $1.10. The 6% reject allowance is carried at drop level.</p></div>
+      <div class="card"><h3>Landed, not ex-works</h3><p>Includes inbound freight and inspection. Outbound international freight and duty sit in variable opex at about <b>$11 per order</b> blended DDP.</p></div>
+      <div class="card"><h3>Size curve</h3><p>S 15% · M 32% · L 33% · XL 20%. Corrected from Drop 001 actuals before Drop 003 — the largest source of dead stock in year one.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 15 DROP MODEL -->
+<div class="page" data-pg="15" data-run="XII · The drop model">
+  <div class="rule"><span class="n">XII</span><span class="lab">The drop model</span></div>
+  <div class="body">
+    <div class="cols2">
+      <div><h2>Twelve nights a year, decided by the moon.</h2>
+        <p class="dim">One drop per <em>amavasya</em>, live at the astronomical instant in UTC, so it opens at the same second in every market. One unit per piece per person. No restocks, pre-orders, back-in-stock notifications or waitlists.</p>
+        <p class="dim">Unsold stock is never discounted. It is re-dyed as <b>Raakh</b> and released into the following year's archive at the same price. The brand never runs a sale, which protects both margin and the resale market.</p></div>
+      <div class="card"><h3>Published rules, never broken</h3>
+        <p>1. One drop per new moon.<br>2. One unit per piece, per person.<br>3. Nothing restocked, ever.<br>4. No discounts, at any time.<br>5. Drop 002 fully in hand before Drop 001 opens.</p>
+        <p style="color:var(--gold)">The mechanic only becomes an asset once it is unbroken. A late drop costs the entire idea.</p></div>
+    </div>
+    <table style="margin-top:auto">
+      <thead><tr><th>Phase</th><th>Drops</th><th class="n">Units/drop</th><th class="n">Sell-through</th><th class="n">Revenue/drop</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>Launch</td><td>001–003</td><td class="n">1,310</td><td class="n">92%</td><td class="n">$104,000</td><td>Small seeded audience; scarcity real and visible.</td></tr>
+        <tr><td>Build</td><td>004–008</td><td class="n">1,450</td><td class="n">88%</td><td class="n">$110,120</td><td>Size curve corrected; list growing off resale visibility.</td></tr>
+        <tr><td>Scale</td><td>009–012</td><td class="n">1,600</td><td class="n">85%</td><td class="n">$117,370</td><td>All seven markets live; slack in tail sizes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 16 MODEL -->
+<div class="page" data-pg="16" data-run="XIII · Three-year model">
+  <div class="rule"><span class="n">XIII</span><span class="lab">Three-year model</span></div>
+  <div class="body">
+    <table>
+      <thead><tr><th>&nbsp;</th><th class="n">Year 1</th><th class="n">Year 2</th><th class="n">Year 3</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Drops</td><td class="n">12</td><td class="n">13</td><td class="n">13</td><td>Lunar, not calendar</td></tr>
+        <tr><td>Units sold</td><td class="n">15,435</td><td class="n">27,600</td><td class="n">44,200</td><td>Womenswear from Y2</td></tr>
+        <tr><td>Average selling price</td><td class="n">$86</td><td class="n">$90</td><td class="n">$94</td><td>Mix shifts up, no price rises</td></tr>
+        <tr><td><b>Revenue</b></td><td class="n"><b>$1.33 M</b></td><td class="n"><b>$2.48 M</b></td><td class="n"><b>$4.16 M</b></td><td>Direct only, all years</td></tr>
+        <tr><td>Gross profit</td><td class="n">$1.00 M</td><td class="n">$1.86 M</td><td class="n">$3.12 M</td><td>75–76% throughout</td></tr>
+        <tr><td>Variable opex</td><td class="n">$113 K</td><td class="n">$211 K</td><td class="n">$353 K</td><td>Gateway, DDP freight, exchanges</td></tr>
+        <tr><td>Fixed opex</td><td class="n">$170 K</td><td class="n">$390 K</td><td class="n">$770 K</td><td>Team, studio, one store in Y3</td></tr>
+        <tr><td><b>EBITDA</b></td><td class="n"><b>$716 K</b></td><td class="n"><b>$1.26 M</b></td><td class="n"><b>$1.99 M</b></td><td>—</td></tr>
+        <tr><td>EBITDA margin</td><td class="n">54%</td><td class="n">51%</td><td class="n">48%</td><td>Falls as fixed cost is added</td></tr>
+        <tr><td>Marketing spend</td><td class="n">$0</td><td class="n">$0</td><td class="n">$0</td><td>Structural, not a cost saving</td></tr>
+      </tbody>
+    </table>
+    <div class="cols4" style="margin-top:auto">
+      <div class="card"><h3>Why the margin is high</h3><p>No wholesale discount (−50%), no marketplace commission (−25%), no paid acquisition (−15–25%), no markdowns. Removing those four is the delta.</p></div>
+      <div class="card"><h3>Where it is fragile</h3><p>Assumes <b>85%+ sell-through</b>. At 65%, Y1 EBITDA falls to <b>$390 K</b>; at 50% to <b>$165 K</b> — survives, but stops self-funding.</p></div>
+      <div class="card"><h3>Working capital</h3><p>Each drop needs about <b>$30 K</b> in hand 60 days ahead. From Drop 004 the previous drop funds the next.</p></div>
+      <div class="card"><h3>FX exposure</h3><p>Revenue USD, costs INR. Every 5% rupee appreciation costs about <b>1.2 points</b> of gross margin. Forward-cover from Y2.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 17 OPS -->
+<div class="page" data-pg="17" data-run="XIV · Operations">
+  <div class="rule"><span class="n">XIV</span><span class="lab">Operations &amp; supply chain</span></div>
+  <div class="body">
+    <div class="cols2">
+      <div><h2>Black is a manufacturing problem before it is a design problem.</h2>
+        <p class="dim">The whole brand rests on five repeatable dye recipes. Three dye houses are sampled in parallel and one chosen on wash-test data, not price. Every batch is logged against a reference swatch and rejected outside tolerance. Cut-make-trim sits with two units in Tiruppur and one in Noida; no single vendor exceeds 40% of a drop.</p></div>
+      <div class="card"><h3>The 60-day drop cycle</h3>
+        <p><b>D−60</b> Fabric booked, dye lot approved against reference.<br>
+           <b>D−45</b> Cut and make begins; first-off inspected.<br>
+           <b>D−25</b> 30 wash cycles on a pulled sample.<br>
+           <b>D−18</b> Finishing, labels, numbered cards.<br>
+           <b>D−10</b> Goods in, photographed, listed dark.<br>
+           <b>D−0</b> Site lights at the astronomical instant, worldwide.</p></div>
+    </div>
+    <div class="cols4" style="margin-top:auto">
+      <div class="card"><h3>Fulfilment</h3><p>3PL in Bhiwandi. India in 48 hours; international consolidated air twice weekly out of Mumbai, DDP.</p></div>
+      <div class="card"><h3>Returns</h3><p>Exchange only, size for size, 14 days internationally. No refunds — consistent with one-per-person and no restock.</p></div>
+      <div class="card"><h3>Fade warranty</h3><p>Free re-dye for life on Kajal, worldwide. 4% claim rate, <b>$18</b> a claim including return freight.</p></div>
+      <div class="card"><h3>Stack</h3><p>Shopify headless, multi-currency, queue and bot mitigation from day one.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 18 GTM -->
+<div class="page" data-pg="18" data-run="XV · Go to market">
+  <div class="rule"><span class="n">XV</span><span class="lab">Go to market</span></div>
+  <div class="body">
+    <h2>No paid media, ever. It contradicts the product.</h2>
+    <div class="cols3">
+      <div class="card"><h3>1 · Seed forty, not forty thousand</h3><p>One unnumbered black tee, hand-delivered, no note, to forty specific people across New York, London, Dubai and Mumbai. If it needs a caption it isn't working.</p></div>
+      <div class="card"><h3>2 · Open an empty room</h3><p>The site goes live 60 days out as a black page with a countdown and nothing else. The only shareable object is the URL.</p></div>
+      <div class="card"><h3>3 · Take the number, not the email</h3><p>SMS and WhatsApp worldwide, one message per amavasya. Higher intent than email everywhere, and we own the list.</p></div>
+      <div class="card"><h3>4 · One physical night</h3><p>Drop 001 also opens for six hours in one unmarked room in Mumbai, lit by a single lamp. Fifty units held back.</p></div>
+      <div class="card"><h3>5 · Let resale happen</h3><p>Never fight it, never comment on it, always track it. The resale multiple is the number that says whether this works.</p></div>
+      <div class="card"><h3>6 · Give one away a year</h3><p>On Janmashtami the Mor piece is not sold. 108 units, given to people who write in about the black they already own.</p></div>
+    </div>
+    <div class="cols4" style="margin-top:auto">
+      <div class="card"><h3>CAC</h3><div class="big">$5</div><p>Y1 blended, seeding and drop night only.</p></div>
+      <div class="card"><h3>Repeat rate</h3><div class="big">38%</div><p>Target by Drop 006. Decides Year 2.</p></div>
+      <div class="card"><h3>Contribution / customer</h3><div class="big">$63</div><p>First purchase, after variable cost.</p></div>
+      <div class="card"><h3>Resale multiple</h3><div class="big g">1.4–2.2×</div><p>Target for Drop 001 within 90 days.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 19 CAPITAL + RISK -->
+<div class="page" data-pg="19" data-run="XVI · Capital &amp; risk">
+  <div class="rule"><span class="n">XVI</span><span class="lab">Capital &amp; risk</span></div>
+  <div class="body">
+    <div class="cols2">
+      <table>
+        <thead><tr><th>Use of funds</th><th class="n">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Inventory, Drop 001 — landed COGS, 1,310 units</td><td class="n">$27,300</td></tr>
+          <tr><td>Site &amp; photography — headless build, queue, imagery</td><td class="n">$5,000</td></tr>
+          <tr><td>Trademark, entity, legal — classes 25 &amp; 35, then Madrid</td><td class="n">$3,600</td></tr>
+          <tr><td>Launch night &amp; seeding — room, lighting, 40 units</td><td class="n">$5,000</td></tr>
+          <tr><td>Dye sampling &amp; wash testing — three houses, 30 cycles</td><td class="n">$1,700</td></tr>
+          <tr><td>Contingency — ~6% on a first production run</td><td class="n">$2,400</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total to Drop 001 · self-funding thereafter</td><td class="n">$45,000</td></tr></tfoot>
+      </table>
+      <div class="card"><h3>Two ways in</h3>
+        <p><b>$45 K friends-and-family</b> to reach Drop 001 and prove sell-through. No institutional round is needed to reach profitability.</p>
+        <p><b>$300 K seed, optional, post Drop 003</b> to compress Year 2: womenswear, a US-side 3PL, and pulling the Year 3 store forward.</p>
+        <p style="color:var(--gold)">The decision to raise should be made on Drop 003 data — resale multiple and repeat rate — not before.</p></div>
+    </div>
+    <table style="margin-top:auto">
+      <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td><b>The black greys within a year</b></td><td style="color:#C77A7A">Critical</td><td>The warranty becomes a liability and the one promise breaks in public. Three dye houses, 30 wash cycles, before any copy is written. The warranty is not published until the data supports it.</td></tr>
+        <tr><td><b>Sell-through below 65%</b></td><td style="color:#C7A252">High</td><td>Cut Drop 001 conservatively. Correct the size curve before Drop 003. Unsold stock re-dyed as Raakh, never discounted.</td></tr>
+        <tr><td><b>A drop slips</b></td><td style="color:#C7A252">High</td><td>Drop 002 fully in hand before 001 opens, permanently keeping one drop of buffer.</td></tr>
+        <tr><td><b>Trademark cannot be held</b></td><td style="color:#C7A252">High</td><td>“Shyam” is a common personal name. The <b>device</b> protects the business — file disc plus wordmark as a composite in classes 25 and 35.</td></tr>
+        <tr><td><b>Customs and DDP friction</b></td><td style="color:#C7A252">Medium</td><td>Duties paid at checkout. HS codes confirmed per market before Drop 001; a refused first international order is a permanent reputational cost.</td></tr>
+        <tr><td><b>Religious sensitivity</b></td><td style="color:#C7A252">Medium</td><td>Reverent register, no figurative depiction, nothing on garments worn below the waist. Each line reviewed with a scholar.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 20 MILESTONES -->
+<div class="page" data-pg="20" data-run="XVI · Milestones">
+  <div class="rule"><span class="n">XVI</span><span class="lab">Milestones</span></div>
+  <div class="body">
+    <table>
+      <thead><tr><th>When</th><th>Milestone</th><th>Gate to pass</th></tr></thead>
+      <tbody>
+        <tr><td class="n">Now</td><td>Dye house selection, wash-test programme begins</td><td>One house holds Kajal through 30 cycles</td></tr>
+        <tr><td class="n">+3 weeks</td><td>Mark and wordmark to final vector; trademark filed</td><td>Device accepted for filing in class 25</td></tr>
+        <tr><td class="n">+4 weeks</td><td>HS codes and DDP rates confirmed for seven markets</td><td>Landed cost per market inside $14</td></tr>
+        <tr><td class="n">+5 weeks</td><td>Drop 001 cut and make begins</td><td>Fabric and dye lot approved against reference</td></tr>
+        <tr><td class="n">+6 weeks</td><td>Site live as an empty room with the countdown</td><td>1,000 numbers on the list before drop night</td></tr>
+        <tr><td class="n">11 Oct 2026</td><td><b>Drop 001</b> — worldwide, and one unmarked room</td><td>80%+ sell-through in 72 hours</td></tr>
+        <tr><td class="n">10 Nov 2026</td><td>Drop 002 — already in hand before 001 opened</td><td>Ships on the instant, no slip</td></tr>
+        <tr><td class="n">Dec 2026</td><td>Drop 003; decision point on the seed round</td><td>Repeat above 25%, resale above 1.0×</td></tr>
+        <tr><td class="n">Sep 2027</td><td>Janmashtami piece — 108 units, given not sold</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:auto">
+      <p class="foot-note">All figures in USD and are indicative planning numbers built from vendor estimates and comparable-brand benchmarks — not audited accounts or a commissioned market study. INR costs converted at 83 to the dollar. Costs must be locked against real quotes and the market sizing independently validated before any priced round. New-moon dates are computed from the mean synodic month and must be confirmed against a panchang before printing. The mark is production-ready as specified; the wordmark beside it is set in a licensed typeface and must be redrawn as custom outlines before filing or printing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 21 BACK -->
+<div class="page cover" data-pg="" data-run="">
+  <div class="mk" style="width:22mm"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="#F2EDE3"/><rect x="95.4" y="8" width="9.2" height="94" fill="#05060B"/></svg></div>
+  <p class="lede" style="max-width:120mm;text-align:center;font-family:var(--display);font-size:16pt;color:var(--cream)">
+    You've been wearing black your whole life.<br>You just didn't know whose it was.</p>
+  <div class="meta" style="margin-top:14mm"><span class="lab">Shyam · श्याम</span><span class="lab">Drop 001 · 11 October 2026</span></div>
+</div>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  var g=document.getElementById('grid');
+  if(g){
+    g.appendChild(el('circle',{cx:150,cy:150,r:130,fill:'none',stroke:'#2A3140','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('line',{x1:150,y1:8,x2:150,y2:292,stroke:'#2A3140','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('line',{x1:8,y1:150,x2:292,y2:150,stroke:'#2A3140','stroke-width':1,'stroke-dasharray':'3 4'}));
+    g.appendChild(el('circle',{cx:150,cy:150,r:110,fill:'#F2EDE3'}));
+    g.appendChild(el('rect',{x:144.5,y:40,width:11,height:112,fill:'#05060B'}));
+    g.appendChild(el('circle',{cx:150,cy:150,r:4,fill:'#C7A252'}));
+    var t=el('text',{x:150,y:284,'text-anchor':'middle','font-family':'Archivo','font-size':10,'letter-spacing':2,fill:'#7B8192'});
+    t.textContent='SLOT 5% OF Ø  ·  DEPTH TO CENTRE';
+    g.appendChild(t);
+  }
+
+  var DATES=['11 Oct 2026','10 Nov 2026','9 Dec 2026','8 Jan 2027','6 Feb 2027','8 Mar 2027',
+             '6 Apr 2027','6 May 2027','4 Jun 2027','4 Jul 2027','2 Aug 2027','1 Sep 2027'];
+  var c=document.getElementById('clock');
+  if(c){
+    DATES.forEach(function(d,i){
+      var f=document.createElement('figure');
+      f.innerHTML='<svg viewBox="0 0 70 70" aria-hidden="true"><g transform="rotate('+(i*30)+' 35 35)">'+
+        '<circle cx="35" cy="35" r="30" fill="'+(i===0?'#C7A252':'#F2EDE3')+'"/>'+
+        '<rect x="33.5" y="4" width="3" height="32" fill="#05060B"/></g></svg>'+
+        '<i>'+String(i+1).padStart(3,'0')+'</i>';
+      c.appendChild(f);
+    });
+  }
+})();
+</script>
+<script type="module">
+import { RENDER, BLACKS } from './assets/garments.js';
+const F = document.getElementById('flats');
+const set = [
+  ['hoodie','neel','Bansuri Hoodie · $165'],
+  ['kurta','raakh','Kurta Shirt · $125'],
+  ['tee','kajal','Boxy Tee · $60'],
+  ['trouser','kajal','Drape Trouser · $145']
+];
+set.forEach(([r,b,cap])=>{
+  const fig=document.createElement('figure');
+  fig.innerHTML='<div class="plate" style="height:74mm">'+RENDER[r](BLACKS[b])+'</div><figcaption>'+cap+'</figcaption>';
+  F.appendChild(fig);
+});
+</script>
+</body>
+</html>

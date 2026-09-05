@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shyam — Drop 001</title>
-<meta name="description" content="An all-black clothing house named after Krishna. One drop per new moon. Nothing restocked.">
+<meta name="description" content="An all-black clothing house named after Krishna. One drop per new moon. Shipped worldwide. Nothing restocked.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23F2EDE3'/><rect x='47.7' y='4' width='4.6' height='47' fill='%2304050A'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+
+<canvas id="atmos" aria-hidden="true"></canvas>
+<div id="grain" aria-hidden="true"></div>
 
 <nav id="nav">
   <div class="in">
@@ -26,56 +29,77 @@
       <a href="logo.html">Identity</a>
       <a href="brand.html">Brand book</a>
       <a href="plan.html">Business plan</a>
+      <a href="book.html">Book &amp; PDF</a>
     </div>
-    <button class="bag" id="bagBtn" type="button" aria-label="Open bag">
-      Bag <span id="bagCount">0</span>
-    </button>
+    <button class="bag" id="bagBtn" type="button" aria-label="Open bag">Bag <span id="bagCount">0</span></button>
   </div>
 </nav>
 
-<!-- ===================== HERO ===================== -->
+<!-- ============== HERO ============== -->
 <header class="hero" id="hero">
-  <div class="hero-veil" id="veil"></div>
   <div class="hero-in">
-    <div class="disc" id="heroDisc">
+    <div class="disc" data-par="0.06">
       <svg viewBox="0 0 200 200" aria-label="The Shyam mark">
         <circle cx="100" cy="100" r="92" fill="#F2EDE3"/>
         <rect id="heroSlot" x="95.4" y="8" width="9.2" height="94" fill="#04050A"/>
       </svg>
     </div>
-    <p class="eyebrow">Amavasya &middot; 11 October 2026 &middot; 14:43 IST</p>
+    <p class="eyebrow">Amavasya · 11 October 2026 · 09:13 UTC</p>
     <h1>DROP 001</h1>
     <p class="dv">अमावस्या</p>
-    <p class="sub">Eight pieces. 1,310 units. Nothing returns.<br>The room stays dark until the moon does.</p>
+    <p class="sub">Eight pieces. 1,310 units. Shipped worldwide.<br>The room stays dark until the moon does.</p>
     <div class="count" id="count">
       <div><b id="cd">--</b><span>Days</span></div>
       <div><b id="ch">--</b><span>Hours</span></div>
       <div><b id="cm">--</b><span>Min</span></div>
       <div><b id="cs">--</b><span>Sec</span></div>
     </div>
-    <p class="hint">Move across the dark</p>
   </div>
+  <div class="scrollcue" aria-hidden="true"><span></span></div>
 </header>
 
-<!-- ===================== DROP ===================== -->
+<!-- ============== EDITORIAL PANELS ============== -->
+<section class="panel" id="p1">
+  <div class="panel-art" data-par="0.14"><div class="stage" id="stage1"></div></div>
+  <div class="panel-copy">
+    <p class="lab gold">S1&#8209;02 · Bansuri Hoodie</p>
+    <h2>480 gsm, indigo over black.</h2>
+    <p class="lede">Overdyed so the black carries a blue cast in daylight and reads flat under a lamp. Split kurta hem. Brass&#8209;tipped drawcords. 150 made.</p>
+    <p class="price">$165</p>
+    <button class="ghost" type="button" data-open="S1-02">Open the piece</button>
+  </div>
+</section>
+
+<section class="panel flip" id="p2">
+  <div class="panel-art" data-par="0.14"><div class="stage" id="stage2"></div></div>
+  <div class="panel-copy">
+    <p class="lab gold">S1&#8209;03 · Kurta Shirt</p>
+    <h2>A kurta cut like a work shirt.</h2>
+    <p class="lede">Ten&#8209;ounce washed canvas in Raakh — ash, enzyme&#8209;washed and sun&#8209;faded on purpose, so it arrives already lived in. Six cast brass buttons carrying the mark. 120 made.</p>
+    <p class="price">$125</p>
+    <button class="ghost" type="button" data-open="S1-03">Open the piece</button>
+  </div>
+</section>
+
+<!-- ============== THE LINE ============== -->
 <section id="drop" class="reveal">
   <div class="wrap">
     <div class="head"><span class="lab">The line</span><span class="lab r" id="unitsLeft"></span></div>
     <h2>Indian silhouettes, streetwear construction, luxury make.</h2>
-    <p class="lede">One per person, per piece. No restocks, no pre-orders, no back-in-stock emails. Tap any piece to open it.</p>
+    <p class="lede">One per person, per piece. No restocks, no pre&#8209;orders, no back&#8209;in&#8209;stock emails. Duties paid, shipped worldwide. Tap any piece to open it.</p>
     <div class="pgrid" id="pgrid"></div>
   </div>
 </section>
 
-<!-- ===================== BLACK ===================== -->
+<!-- ============== BLACK ============== -->
 <section id="black" class="reveal">
   <div class="wrap">
     <div class="head"><span class="lab">The black</span></div>
     <div class="split">
       <div>
         <h2>We sell one colour, so we made five of it.</h2>
-        <p class="lede">Each black is a named, repeatable dye recipe &mdash; not a shade on a swatch card. Pick one and the piece changes.</p>
-        <p class="lede"><b>The fade warranty.</b> Black greys after twelve washes and everyone knows it. Every piece ships with a numbered card: if it fades within two years we re-dye it free, forever.</p>
+        <p class="lede">Each black is a named, repeatable dye recipe — not a shade on a swatch card. Pick one and the piece changes.</p>
+        <p class="lede"><b>The fade warranty.</b> Black greys after twelve washes and everyone knows it. Every piece ships with a numbered card: if it fades within two years we re-dye it free, forever, anywhere in the world.</p>
         <div class="swatches" id="swatches"></div>
       </div>
       <div class="demo">
@@ -86,25 +110,25 @@
   </div>
 </section>
 
-<!-- ===================== CALENDAR ===================== -->
+<!-- ============== CALENDAR ============== -->
 <section id="calendar" class="reveal">
   <div class="wrap">
     <div class="head"><span class="lab">The calendar</span></div>
     <div class="split">
       <div>
         <h2>We drop on the new moon.</h2>
-        <p class="lede"><em>Amavasya</em> is the darkest night of the lunar month. It comes every twenty-nine and a half days and nobody decides when &mdash; not even us.</p>
-        <p class="lede">The mark is a hand on a dial. It turns thirty degrees a drop, so the piece you own says which night it came from without a number printed anywhere. Hover a dial to see its date.</p>
+        <p class="lede"><em>Amavasya</em> is the darkest night of the lunar month. It comes every twenty-nine and a half days and nobody decides when — not even us. Every drop opens at the same astronomical instant everywhere on earth.</p>
+        <p class="lede">The mark is a hand on a dial. It turns thirty degrees a drop, so the piece you own says which night it came from without a number printed anywhere. Hover a dial for its date.</p>
       </div>
       <div class="clockbox">
         <div class="clock" id="clock"></div>
-        <p class="clocknote" id="clockNote">Drop 001 &middot; 11 October 2026</p>
+        <p class="clocknote" id="clockNote">Drop 001 · 11 October 2026 · 09:13 UTC</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== NOTIFY ===================== -->
+<!-- ============== NOTIFY ============== -->
 <section id="notify" class="reveal">
   <div class="wrap">
     <div class="split">
@@ -115,11 +139,11 @@
       <form class="form" id="form" novalidate>
         <span class="lab gold">Drop notification</span>
         <div class="row">
-          <label for="ph" class="sr">Phone number</label>
-          <input id="ph" type="tel" inputmode="tel" placeholder="+91 00000 00000" autocomplete="tel">
+          <label for="ph" class="sr">Phone number with country code</label>
+          <input id="ph" type="tel" inputmode="tel" placeholder="+1 000 000 0000" autocomplete="tel">
           <button type="submit">Notify me</button>
         </div>
-        <p class="note" id="formNote">SMS and WhatsApp only. We never email, and we never sell the list.</p>
+        <p class="note" id="formNote">SMS and WhatsApp only, worldwide. We never email, and we never sell the list.</p>
       </form>
     </div>
   </div>
@@ -134,26 +158,24 @@
       <span class="fl"><a href="brand.html">Brand book</a></span>
       <span class="fl"><a href="plan.html">Business plan</a></span>
     </div>
-    <p>Made in India. One per person, per piece. Nothing restocked.<br>
-       Concept build. Product renders are vector, not photography; figures are indicative planning numbers.</p>
+    <p>Made in India. Shipped worldwide, duties paid. All prices in USD.<br>
+       One per person, per piece. Nothing restocked.<br>
+       Concept build — product imagery is layered vector, not photography; figures are indicative.</p>
   </div>
 </footer>
 
-<!-- ===================== QUICK VIEW ===================== -->
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="quick" hidden aria-label="Product detail">
   <button class="x" id="quickX" type="button" aria-label="Close">&times;</button>
   <div class="qbody" id="qbody"></div>
 </aside>
-
-<!-- ===================== BAG ===================== -->
 <aside class="drawer bagdrawer" id="bag" hidden aria-label="Bag">
   <button class="x" id="bagX" type="button" aria-label="Close">&times;</button>
   <div class="bhead"><span class="lab">Your bag</span></div>
   <div id="bagItems"></div>
   <div class="btot" id="bagTotal"></div>
   <button class="cta" id="checkout" type="button">Checkout</button>
-  <p class="note">One unit per piece, per person. Guest checkout only &mdash; UPI, card, Apple Pay.</p>
+  <p class="note">One unit per piece, per person. Guest checkout — card, Apple Pay, UPI. Duties paid at checkout.</p>
 </aside>
 
 <script type="module" src="assets/site.js"></script>

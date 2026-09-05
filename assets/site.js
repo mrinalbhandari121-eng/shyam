@@ -1,46 +1,47 @@
-import { RENDER, BLACKS, markSVG } from './garments.js';
+import { RENDER, BLACKS } from './garments.js';
+import { atmosphere, grain, parallax } from './atmos.js';
 
 /* ---------------- data ---------------- */
 const PRODUCTS = [
   { sku:'S1-01', id:'tee',      name:'Boxy Tee',        render:'tee',
-    cloth:'260 gsm compact cotton', dye:'kajal', inr:4800,  usd:58,
+    cloth:'260 gsm compact cotton', dye:'kajal', usd:60,
     made:300, left:284, sizes:['S','M','L','XL'], out:[],
     fit:'Boxy, drops one size. Model wears M at 5\'11".',
     detail:'Garment-dyed after make so the seams shade with the body. Tonal mark embroidered at chest, 8 mm.',
     care:'Cold wash inside out. Line dry in shade. Never bleach.' },
   { sku:'S1-02', id:'hoodie',   name:'Bansuri Hoodie',  render:'hoodie',
-    cloth:'480 gsm loopback terry', dye:'neel', inr:12900, usd:155,
+    cloth:'480 gsm loopback terry', dye:'neel', usd:165,
     made:150, left:96, sizes:['S','M','L','XL'], out:['S'],
     fit:'True to size with a deliberate drop shoulder.',
     detail:'Indigo overdyed on black. Split kurta hem, brass-tipped drawcords, tonal mark at chest.',
     care:'Cold wash inside out. Do not tumble. Re-dye free within two years.' },
   { sku:'S1-03', id:'kurta',    name:'Kurta Shirt',     render:'kurta',
-    cloth:'10 oz washed cotton canvas', dye:'raakh', inr:9800, usd:118,
+    cloth:'10 oz washed cotton canvas', dye:'raakh', usd:125,
     made:120, left:71, sizes:['S','M','L','XL'], out:[],
     fit:'Straight, long body. Side vents from the hip.',
     detail:'Mandarin collar, centre placket, six cast brass buttons carrying the mark.',
     care:'Machine wash cold. Warm iron on the placket only.' },
   { sku:'S1-04', id:'trouser',  name:'Drape Trouser',   render:'trouser',
-    cloth:'Wool-cotton twill', dye:'kajal', inr:11500, usd:138,
+    cloth:'Wool-cotton twill', dye:'kajal', usd:145,
     made:100, left:63, sizes:['30','32','34','36'], out:['36'],
     fit:'High rise, double pleat, wide through the thigh.',
     detail:'Dhoti fall at the hem so the break sits soft. Cast brass closure at the waistband.',
     care:'Dry clean only.' },
   { sku:'S1-07', id:'cap',      name:'Six-Panel Cap',   render:'cap',
-    cloth:'Brushed twill', dye:'mor', inr:3400, usd:41,
+    cloth:'Brushed twill', dye:'mor', usd:45,
     made:200, left:151, sizes:['One size'], out:[],
     fit:'Unstructured, adjustable brass slider.',
     detail:'Peacock-black: reads flat until raking light finds the teal. Tonal mark on the left panel.',
     care:'Spot clean only.' },
   { sku:'S1-08', id:'mala',     name:'Tulsi Mala',      render:'mala',
-    cloth:'Blackened tulsi wood, 108 bead', dye:'kajal', inr:2900, usd:35,
+    cloth:'Blackened tulsi wood, 108 bead', dye:'kajal', usd:38,
     made:250, left:238, sizes:['One size'], out:[],
     fit:'Sits at the collarbone. 108 beads and a guru bead.',
     detail:'Turned from tulsi, blackened by hand. No two are the same depth of black.',
     care:'Keep dry. It will lighten where it is touched most, and that is correct.' }
 ];
 
-const INR = n => '₹' + n.toLocaleString('en-IN');
+const USD = n => '$' + n.toLocaleString('en-US');
 
 /* ---------------- state ---------------- */
 const bag = [];
@@ -50,7 +51,7 @@ const $ = s => document.querySelector(s);
 const el = (t, c) => { const e = document.createElement(t); if (c) e.className = c; return e; };
 
 /* ---------------- countdown ---------------- */
-const TARGET = new Date('2026-10-11T14:43:00+05:30').getTime();
+const TARGET = new Date('2026-10-11T09:13:00Z').getTime();
 const pad = n => String(n).padStart(2, '0');
 function tick() {
   let t = Math.max(0, TARGET - Date.now());
@@ -61,16 +62,15 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
-/* ---------------- hero torch ---------------- */
-const veil = $('#veil'), hero = $('#hero');
-hero.addEventListener('pointermove', e => {
-  const r = hero.getBoundingClientRect();
-  veil.style.setProperty('--x', ((e.clientX - r.left) / r.width * 100) + '%');
-  veil.style.setProperty('--y', ((e.clientY - r.top) / r.height * 100) + '%');
-});
-hero.addEventListener('pointerleave', () => {
-  veil.style.setProperty('--x', '50%'); veil.style.setProperty('--y', '38%');
-});
+/* ---------------- atmosphere ---------------- */
+atmosphere($('#atmos'));
+grain($('#grain'));
+
+/* ---------------- editorial panels ---------------- */
+$('#stage1').innerHTML = RENDER.hoodie(BLACKS.neel);
+$('#stage2').innerHTML = RENDER.kurta(BLACKS.raakh);
+document.querySelectorAll('[data-open]').forEach(b =>
+  b.addEventListener('click', () => openQuick(b.dataset.open)));
 
 /* the hero slot sweeps once on load, then rests at twelve */
 const slot = $('#heroSlot');
@@ -92,7 +92,7 @@ PRODUCTS.forEach(p => {
      <div class="info">
        <span class="nm">${p.name}</span>
        <span class="sp">${p.cloth} &middot; ${BLACKS[p.dye].name}</span>
-       <span class="pr"><span class="inr">${INR(p.inr)}</span><span class="usd">$${p.usd}</span></span>
+       <span class="pr"><span class="inr">${USD(p.usd)}</span></span>
        <span class="left"><span>${p.left} of ${p.made}</span>
          <span class="bar"><i style="width:${Math.round(p.left / p.made * 100)}%"></i></span></span>
      </div>`;
@@ -143,7 +143,7 @@ DROPS.forEach((date, i) => {
   d.addEventListener('click', show);
   clock.appendChild(d);
 });
-clock.addEventListener('mouseleave', () => { clockNote.textContent = 'Drop 001 · 11 October 2026'; });
+clock.addEventListener('mouseleave', () => { clockNote.textContent = 'Drop 001 · 11 October 2026 · 09:13 UTC'; });
 
 /* ---------------- quick view ---------------- */
 const scrim = $('#scrim'), quick = $('#quick'), qbody = $('#qbody'), bagDrawer = $('#bag');
@@ -173,7 +173,7 @@ function paintQuick() {
     `<div class="qart">${RENDER[p.render](b)}</div>
      <div class="qsku">${p.sku} &middot; ${p.left} of ${p.made} remaining</div>
      <h2 class="qtitle">${p.name}</h2>
-     <div class="qprice">${INR(p.inr)}<small>$${p.usd}</small></div>
+     <div class="qprice">${USD(p.usd)}<small>duties paid</small></div>
      <dl class="qspec">
        <dt>Cloth</dt><dd>${p.cloth}</dd>
        <dt>Black</dt><dd>${b.name} &mdash; ${b.note}</dd>
@@ -210,7 +210,7 @@ function paintQuick() {
   add.addEventListener('click', () => {
     if (bag.some(i => i.sku === p.sku)) { add.textContent = 'Already in bag'; add.disabled = true; return; }
     bag.push({ sku: p.sku, name: p.name, render: p.render, dye: chosenDye,
-               size: chosenSize, inr: p.inr });
+               size: chosenSize, usd: p.usd });
     p.left = Math.max(0, p.left - 1);
     paintBag(); closeAll(); openBag();
   });
@@ -239,7 +239,7 @@ function paintBag() {
          <div><div class="bn">${it.name}</div>
            <div class="bs">${BLACKS[it.dye].name} &middot; ${it.size}</div>
            <button class="rm" type="button">Remove</button></div>
-         <div class="bp">${INR(it.inr)}</div>`;
+         <div class="bp">${USD(it.usd)}</div>`;
       row.querySelector('.rm').addEventListener('click', () => {
         const p = PRODUCTS.find(x => x.sku === it.sku);
         if (p) p.left += 1;
@@ -247,8 +247,8 @@ function paintBag() {
       });
       wrap.appendChild(row);
     });
-    const total = bag.reduce((a, i) => a + i.inr, 0);
-    $('#bagTotal').innerHTML = `<span class="lab">Total</span><b>${INR(total)}</b>`;
+    const total = bag.reduce((a, i) => a + i.usd, 0);
+    $('#bagTotal').innerHTML = `<span class="lab">Total</span><b>${USD(total)}</b>`;
     $('#checkout').disabled = false;
   }
   $('#bagCount').textContent = bag.length;
@@ -268,7 +268,7 @@ $('#form').addEventListener('submit', e => {
     note.textContent = 'That number looks short. Include the country code.';
     note.className = 'note'; ph.focus(); return;
   }
-  note.textContent = 'Added. Next message: 11 October, 14:43 IST.';
+  note.textContent = 'Added. Next message: 11 October, 09:13 UTC.';
   note.className = 'note ok';
   ph.value = ''; ph.placeholder = 'Saved';
 });
@@ -282,3 +282,5 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObse
   secs.forEach(s => { s.classList.add('pre'); obs.observe(s); });
   setTimeout(() => secs.forEach(s => s.classList.add('in')), 1600);
 }
+
+parallax();
