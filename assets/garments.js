@@ -23,10 +23,6 @@ function shell(id, b, inner, mark) {
         <stop offset="78%" stop-color="${b.hi}" stop-opacity="0.72"/>
         <stop offset="100%" stop-color="${b.lo}"/>
       </linearGradient>
-      <linearGradient id="${g}r" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.10"/>
-        <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0"/>
-      </linearGradient>
       <radialGradient id="${g}s" cx="0.5" cy="0.5" r="0.5">
         <stop offset="0%" stop-color="#000" stop-opacity="0.55"/>
         <stop offset="100%" stop-color="#000" stop-opacity="0"/>
@@ -78,7 +74,6 @@ export const tee = (b, o = {}) => shell(++uid, b, g => `
   ${seam('M112 168 L112 410')}
   ${seam('M288 168 L288 410')}
   ${seam('M112 420 L288 420')}
-  <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>
 `, o.mark === false ? '' : markSVG(200, 196, 15, 0.26));
 
 /* ---------- HOODIE ---------- */
@@ -94,17 +89,21 @@ export const hoodie = (b, o = {}) => shell(++uid, b, g => `
   ${fold(g, 'M118 210 L142 220 L138 418 L114 412 Z', 0.44)}
   ${fold(g, 'M266 214 L292 204 L296 418 L270 422 Z', 0.36)}
   ${fold(g, 'M182 140 L218 140 L212 300 L190 300 Z', 0.30)}
-  <path d="M124 322 L124 384 L276 384 L276 322 L238 312 L162 312 Z"
-        fill="${b.lo}" opacity="0.85"/>
-  ${seam('M124 322 L124 384 L276 384 L276 322')}
+  <path d="M126 318 C126 314 132 310 162 308 L238 308 C268 310 274 314 274 318
+           L274 380 C274 386 268 390 258 390 L142 390 C132 390 126 386 126 380 Z"
+        fill="${b.lo}"/>
+  <path d="M126 318 C126 314 132 310 162 308 L238 308 C268 310 274 314 274 318"
+        fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.07"/>
+  ${seam('M126 380 C126 386 132 390 142 390 L258 390 C268 390 274 386 274 380', 0.10)}
   ${lit('M110 200 L110 416')}
-  <rect x="192" y="106" width="5" height="52" rx="2.5" fill="#5A5F6B" opacity="0.75"/>
-  <rect x="205" y="106" width="5" height="52" rx="2.5" fill="#5A5F6B" opacity="0.75"/>
-  <circle cx="194.5" cy="160" r="4" fill="#8A7038"/>
-  <circle cx="207.5" cy="160" r="4" fill="#8A7038"/>
+  <path d="M191 108 C190 128 189 144 192 162" fill="none" stroke="#6B7079"
+        stroke-width="3.4" stroke-linecap="round" opacity="0.8"/>
+  <path d="M209 108 C210 130 211 146 208 164" fill="none" stroke="#6B7079"
+        stroke-width="3.4" stroke-linecap="round" opacity="0.8"/>
+  <rect x="189.6" y="160" width="4.8" height="9" rx="1.4" fill="#8A7038"/>
+  <rect x="205.6" y="162" width="4.8" height="9" rx="1.4" fill="#8A7038"/>
   ${seam('M104 190 L104 424')}
   ${seam('M296 190 L296 424')}
-  <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>
 `, o.mark === false ? '' : markSVG(200, 230, 14, 0.24));
 
 /* ---------- KURTA SHIRT ---------- */
@@ -124,7 +123,6 @@ export const kurta = (b, o = {}) => shell(++uid, b, g => `
     `<circle cx="200" cy="${y}" r="3.6" fill="#8A7038" opacity="0.9"/>`).join('')}
   ${seam('M114 394 L114 446 M286 394 L286 446')}
   ${lit('M120 178 L120 438')}
-  <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>
 `, o.mark === false ? '' : markSVG(252, 168, 12, 0.24));
 
 /* ---------- TROUSER ---------- */
@@ -143,7 +141,6 @@ export const trouser = (b, o = {}) => shell(++uid, b, g => `
   ${lit('M116 120 L112 440')}
   <circle cx="200" cy="88" r="7" fill="#B08F44"/>
   <rect x="199.3" y="81" width="1.4" height="7.4" fill="#0A0803"/>
-  <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>
 `, o.mark === false ? '' : '');
 
 /* ---------- CAP ---------- */
@@ -158,7 +155,6 @@ export const cap = (b, o = {}) => shell(++uid, b, g => `
         fill="${b.lo}"/>
   ${lit('M92 300 C160 342 318 336 352 306', 0.10)}
   <circle cx="200" cy="176" r="7" fill="${b.hi}"/>
-  <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>
 `, o.mark === false ? '' : markSVG(226, 250, 13, 0.30));
 
 /* ---------- MALA ---------- */
@@ -177,8 +173,7 @@ export const mala = (b, o = {}) => shell(++uid, b, g => {
                    stroke="${b.hi}" stroke-width="1.4" opacity="0.5"/>
     ${beads}
     <circle cx="${cx}" cy="${cy + ry + 4}" r="12.5" fill="${b.hi}"/>
-    <circle cx="${cx - 3}" cy="${cy + ry + 1}" r="4.4" fill="#FFFFFF" opacity="0.16"/>
-    <rect x="0" y="0" width="400" height="500" fill="url(#${g}r)" style="mix-blend-mode:screen"/>`;
+    <circle cx="${cx - 3}" cy="${cy + ry + 1}" r="4.4" fill="#FFFFFF" opacity="0.16"/>`;
 }, '');
 
 export const RENDER = { tee, hoodie, kurta, trouser, cap, mala };

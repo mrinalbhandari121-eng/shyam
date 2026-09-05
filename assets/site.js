@@ -72,13 +72,6 @@ $('#stage2').innerHTML = RENDER.kurta(BLACKS.raakh);
 document.querySelectorAll('[data-open]').forEach(b =>
   b.addEventListener('click', () => openQuick(b.dataset.open)));
 
-/* the hero slot sweeps once on load, then rests at twelve */
-const slot = $('#heroSlot');
-if (slot && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  slot.style.transform = 'rotate(-330deg)';
-  setTimeout(() => { slot.style.transform = 'rotate(0deg)'; }, 220);
-}
-
 /* ---------------- product grid ---------------- */
 const grid = $('#pgrid');
 PRODUCTS.forEach(p => {
