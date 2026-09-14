@@ -1,6 +1,6 @@
 import { RENDER, BLACKS } from './garments.js?v=01b39c98';
 import { atmosphere, grain, parallax } from './atmos.js?v=8b7e9abc';
-import { motifField, krishna } from './motifs.js?v=79e5ee47';
+import { motifField, krishna } from './motifs.js?v=fb17513b';
 
 /* ---------------- data ---------------- */
 const PRODUCTS = [
@@ -103,9 +103,8 @@ PRODUCTS.forEach(p => {
        ${RENDER[p.render](BLACKS[p.dye])}
        <span class="qv">Quick view</span></div>
      <div class="info">
-       <span class="nm">${p.name}</span>
+       <span class="row1"><span class="nm">${p.name}</span><span class="pr">${USD(p.usd)}</span></span>
        <span class="sp">${p.cloth} &middot; ${BLACKS[p.dye].name}</span>
-       <span class="pr"><span class="inr">${USD(p.usd)}</span></span>
        <span class="left"><span>${p.left} of ${p.made}</span>
          <span class="bar"><i style="width:${Math.round(p.left / p.made * 100)}%"></i></span></span>
      </div>`;
@@ -315,33 +314,30 @@ parallax();
   }
 })();
 
-/* ---------------- headings arrive word by word ---------------- */
+/* ---------------- headings arrive as a line ---------------- */
 (() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const heads = document.querySelectorAll('section h2, .story-copy h2, .panel-copy h2');
-  heads.forEach(h => {
-    const frag = document.createDocumentFragment();
-    h.childNodes.forEach(n => {
-      if (n.nodeType === 3) {
-        n.textContent.split(/(\s+)/).forEach(t => {
-          if (!t.trim()) { frag.appendChild(document.createTextNode(t)); return; }
-          const w = document.createElement('span');
-          w.className = 'w'; w.textContent = t;
-          frag.appendChild(w);
-        });
-      } else frag.appendChild(n.cloneNode(true));
-    });
-    h.textContent = ''; h.appendChild(frag);
-  });
+  const heads = document.querySelectorAll('section h2, .story-copy h2, .panel-copy h2, .lede');
+  heads.forEach(h => h.classList.add('rise'));
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
-    [...e.target.querySelectorAll('.w')].forEach((w, i) =>
-      setTimeout(() => w.classList.add('on'), i * 42));
+    e.target.classList.add('on');
     io.unobserve(e.target);
-  }), { rootMargin: '0px 0px -12% 0px' });
+  }), { rootMargin: '0px 0px -10% 0px' });
   heads.forEach(h => io.observe(h));
-  /* nothing stays hidden if the observer never fires */
-  setTimeout(() => document.querySelectorAll('.w').forEach(w => w.classList.add('on')), 6000);
+  setTimeout(() => heads.forEach(h => h.classList.add('on')), 5000);
+})();
+
+/* ---------------- motifs step back where content is dense ---------------- */
+(() => {
+  const dense = document.querySelectorAll('#drop, #black');
+  if (!dense.length || !('IntersectionObserver' in window)) return;
+  let n = 0;
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { n += e.isIntersecting ? 1 : -1; });
+    document.body.classList.toggle('calm', n > 0);
+  }, { threshold: 0.12 });
+  dense.forEach(d => io.observe(d));
 })();
 
 /* ---------------- cards tilt toward the pointer ---------------- */

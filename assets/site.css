@@ -419,10 +419,11 @@ section.panel{background:none}
 @media (prefers-reduced-motion:reduce){ #lamp{display:none} }
 
 /* ================= HEADING REVEAL ================= */
-.w{display:inline-block;opacity:0;transform:translateY(16px) rotate(1.4deg);
-  transition:opacity .62s cubic-bezier(.2,.9,.2,1),transform .62s cubic-bezier(.2,.9,.2,1)}
-.w.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){ .w{opacity:1;transform:none;transition:none} }
+.rise{opacity:0;transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.2,.9,.2,1),transform .7s cubic-bezier(.2,.9,.2,1)}
+.rise.on{opacity:1;transform:none}
+.rise.lede{transition-delay:.08s}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none} }
 
 /* ================= CARD TILT + SPOTLIGHT ================= */
 .pgrid{perspective:1200px}
@@ -433,3 +434,50 @@ section.panel{background:none}
     rgba(190,205,240,.13),transparent 68%)}
 .p:hover .img::after{opacity:1}
 .p.tilt{transition:border-color .25s}
+
+
+/* ================= CALM: motifs step back over dense content ================= */
+#motifs{transition:opacity .7s ease}
+body.calm #motifs{opacity:.35}
+body.calm #lamp{opacity:.5}
+
+/* ================= ONE VERTICAL RHYTHM ================= */
+section{padding:86px 0}
+section .head{margin-bottom:18px}
+section > .wrap > h2{margin-bottom:14px}
+section > .wrap > .lede{margin-bottom:30px}
+
+/* ================= COUNTDOWN: one quiet line, not four boxes ================= */
+.countline{display:flex;align-items:baseline;gap:0;flex-wrap:wrap;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:14px 0;margin:0 0 34px}
+.countline div{border:none;min-width:0;padding:0 26px 0 0;margin-right:26px;
+  border-right:1px solid var(--line-soft);text-align:left;
+  display:flex;align-items:baseline;gap:8px}
+.countline div:nth-of-type(4){border-right:none}
+.countline b{display:inline;font-family:var(--display);font-size:27px;line-height:1;
+  font-variant-numeric:tabular-nums;margin:0}
+.countline span{font-family:var(--label);font-size:8.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted)}
+.countline .when{margin:0 0 0 auto;align-self:center;font-family:var(--label);
+  font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:720px){
+  .countline{gap:14px}
+  .countline div{padding-right:16px;margin-right:16px}
+  .countline .when{margin:8px 0 0;width:100%}
+}
+
+/* ================= CARDS: fewer lines, clearer hierarchy ================= */
+.pgrid{gap:24px;margin-top:0}
+.p .info{padding:16px 18px 18px;gap:7px}
+.p .row1{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.p .nm{font-size:20px}
+.p .pr{font-family:var(--label);font-size:15px;font-weight:600;
+  font-variant-numeric:tabular-nums;margin:0;color:var(--cream)}
+.p .sp{font-size:12px}
+.p .left{margin-top:6px;padding-top:10px}
+
+/* ================= MEASURE: copy stops before the eye tires ================= */
+.lede{max-width:56ch}
+.story-copy .lede,.panel-copy .lede{max-width:50ch}
+.split{gap:52px}

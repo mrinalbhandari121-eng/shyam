@@ -35,15 +35,11 @@ export function flute(w = 300, tone = '#F2EDE3') {
 
 /* ---------- the field of drifting motifs ---------- */
 const FIELD = [
-  { kind: 'f', x: '7%',  y: '16%', s: 17, rot: -14, op: .055, par: '0.10', dur: 46 },
-  { kind: 'p', x: '86%', y: '11%', s: 118, rot: 12, op: .045, par: '0.05', dur: 62 },
-  { kind: 'f', x: '93%', y: '40%', s: 12, rot: 22,  op: .05,  par: '0.16', dur: 54 },
-  { kind: 'p', x: '4%',  y: '55%', s: 92, rot: -8,  op: .04,  par: '0.08', dur: 70 },
-  { kind: 'f', x: '15%', y: '74%', s: 14, rot: 8,   op: .05,  par: '0.13', dur: 58 },
-  { kind: 'p', x: '80%', y: '80%', s: 104, rot: -16, op: .035, par: '0.06', dur: 66 },
-  { kind: 'f', x: '60%', y: '93%', s: 11, rot: -20, op: .045, par: '0.18', dur: 50 },
-  { kind: 'd', x: '46%', y: '28%', s: 0,  rot: 0,   op: .05,  par: '0.20', dur: 44 },
-  { kind: 'd', x: '24%', y: '60%', s: 0,  rot: 0,   op: .04,  par: '0.24', dur: 52 }
+  { kind: 'f', x: '7%',  y: '16%', s: 15, rot: -14, op: .032, par: '0.10', dur: 46 },
+  { kind: 'p', x: '87%', y: '11%', s: 104, rot: 12, op: .026, par: '0.05', dur: 62 },
+  { kind: 'p', x: '4%',  y: '56%', s: 86, rot: -8,  op: .024, par: '0.08', dur: 70 },
+  { kind: 'f', x: '92%', y: '74%', s: 13, rot: 8,   op: .030, par: '0.13', dur: 58 },
+  { kind: 'd', x: '46%', y: '30%', s: 0,  rot: 0,   op: .028, par: '0.20', dur: 44 }
 ];
 
 export function motifField(host) {
